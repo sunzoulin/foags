@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aspsine.swipetoloadlayout.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/swipeToLoadLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:swipe_style="classic">
+
+    <include
+        android:id="@id/swipe_refresh_header"
+        layout="@layout/layout_refresh_header" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/followMomentLayout"
+                android:background="@color/color_F5F5F5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="@string/follow_person_moment"
+                    android:textColor="@color/color_333333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="1dp"/>
+
+                <com.sbl.foags.view.MomentFollowPersonTipView
+                    android:id="@+id/momentFollowPersonTipView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/rightMoreView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_right_more"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
+
+
+            </LinearLayout>
+
+            <com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
+                android:id="@+id/momentRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="none"
+                android:listSelector="#00000000"
+                android:overScrollMode="never"
+                android:scrollbars="none"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</com.aspsine.swipetoloadlayout.SwipeToLoadLayout>

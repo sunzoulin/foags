@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:lineSpacingExtra="2dp"
+        android:text="@string/net_disconnect" />
+
+    <TextView
+        android:layout_width="124dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="23dp"
+        android:gravity="center"
+        android:text="@string/reload" />
+
+</merge>

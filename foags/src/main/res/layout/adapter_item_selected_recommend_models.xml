@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/modelView"
+        android:visibility="visible"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <FrameLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+
+           <ImageView
+               android:id="@+id/headPicView"
+               android:scaleType="centerCrop"
+               android:layout_width="40dp"
+               android:layout_height="40dp" />
+
+           <ImageView
+               android:layout_gravity="bottom|right"
+               android:src="@drawable/ic_model_v"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/color_333333"
+                android:textSize="13sp"
+                android:id="@+id/nickNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="3dp"
+                android:text="平面模特"
+                android:textColor="@color/color_757575"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:background="@color/color_F2F2F2"
+            android:layout_width="1dp"
+            android:layout_height="25dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/moreModelView"
+        android:visibility="invisible"
+        android:textColor="@color/color_9EA7B9"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        android:text="@string/more_models"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    
+</FrameLayout>
+

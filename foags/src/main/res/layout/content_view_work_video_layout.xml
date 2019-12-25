@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.sbl.foags.view.MyAspectRatioFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:myFrameAspectRatio="1.77">
+
+
+        <ImageView
+            android:id="@+id/videoCoverView"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <ImageView
+            android:id="@+id/playView"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/durationView"
+            android:layout_margin="8dp"
+            android:layout_gravity="left|bottom"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/bg_radius_360_solid_50333333"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+
+</FrameLayout>

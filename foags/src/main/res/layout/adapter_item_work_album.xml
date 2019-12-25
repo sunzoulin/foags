@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/emptyView"
+        android:layout_width="15dp"
+        android:layout_height="1dp"/>
+
+
+    <com.sbl.foags.view.MyAspectRatioFrameLayout
+        android:id="@+id/photoLayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        app:myFrameAspectRatio="0.66">
+
+        <ImageView
+            android:id="@+id/photoView"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <FrameLayout
+            android:visibility="gone"
+            android:background="@drawable/bg_radius_6_solid_50333333"
+            android:id="@+id/moreLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:id="@+id/moreView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+
+    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="1dp"/>
+    
+</LinearLayout>
+

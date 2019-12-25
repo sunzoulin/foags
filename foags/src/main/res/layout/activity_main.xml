@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.sbl.foags.view.CanNotScrollViewPager
+        android:id="@+id/mainViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <LinearLayout
+        android:id="@+id/main_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+
+        <com.sbl.foags.view.TableView
+            android:id="@+id/tab_one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawable="@drawable/tab_one_drawable"
+            app:text="@string/selected"
+            app:textColor="@color/color_main_tab_selector" />
+
+        <com.sbl.foags.view.TableView
+            android:id="@+id/tab_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawable="@drawable/tab_two_drawable"
+            app:text="@string/video"
+            app:textColor="@color/color_main_tab_selector" />
+
+        <com.sbl.foags.view.TableView
+            android:id="@+id/tab_three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawable="@drawable/tab_three_drawable"
+            app:text="@string/oto_video"
+            app:textColor="@color/color_main_tab_selector" />
+
+
+        <com.sbl.foags.view.TableView
+            android:id="@+id/tab_four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawable="@drawable/tab_four_drawable"
+            app:text="@string/private_photo"
+            app:textColor="@color/color_main_tab_selector" />
+
+
+
+        <com.sbl.foags.view.TableView
+            android:id="@+id/tab_five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:drawable="@drawable/tab_five_drawable"
+            app:text="@string/my"
+            app:textColor="@color/color_main_tab_selector" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

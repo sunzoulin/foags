@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">51Ags</string>
+
+    <string name="phone_number_login">手机号登录</string>
+    <string name="please_input_phone_number">请输入手机号</string>
+    <string name="identifying_code">验证码</string>
+    <string name="please_input_identifying_code">请输入验证码</string>
+    <string name="down_arrow">∟</string>
+    <string name="do_login">登录</string>
+    <string name="selected">精选</string>
+    <string name="video">视频</string>
+    <string name="oto_video">1V1视频</string>
+    <string name="private_photo">私密照</string>
+    <string name="my">我的</string>
+    <string name="content_is_null">内容为空</string>
+    <string name="net_disconnect">加载错误</string>
+    <string name="reload">重新加载</string>
+    <string name="double_click_exit">再按一次退出程序</string>
+    <string name="do_login_will_agree_agreement">登录即表示同意《用户协议》</string>
+    <string name="selected_recommend">精选推荐</string>
+    <string name="more_models">更多嫩模 ></string>
+
+    <string name="follow_person_moment">关注人的动态</string>
+
+</resources>

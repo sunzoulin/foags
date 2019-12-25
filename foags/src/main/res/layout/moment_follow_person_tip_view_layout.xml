@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/headPicOneLayout"
+        android:background="@drawable/bg_radius_360_solid_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/headPicOneView"
+            android:scaleType="centerCrop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/headPicTwoLayout"
+        android:visibility="gone"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bg_radius_360_solid_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/headPicTwoView"
+            android:scaleType="centerCrop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/headPicThreeLayout"
+        android:visibility="gone"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/bg_radius_360_solid_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/headPicThreeView"
+            android:scaleType="centerCrop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/headPicFourLayout"
+        android:visibility="gone"
+        android:layout_marginLeft="60dp"
+        android:background="@drawable/bg_radius_360_solid_white"
+        android:layout_width="32dp"
+        android:layout_height="32dp">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/headPicFourView"
+            android:scaleType="centerCrop"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </FrameLayout>
+
+</FrameLayout>

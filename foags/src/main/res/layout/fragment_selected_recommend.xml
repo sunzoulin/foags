@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aspsine.swipetoloadlayout.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/swipeToLoadLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:swipe_style="classic">
+
+    <include
+        android:id="@id/swipe_refresh_header"
+        layout="@layout/layout_refresh_header" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/bannerLayout"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <com.sbl.foags.view.MyAspectRatioFrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:myFrameAspectRatio="2.74">
+
+                        <com.sbl.foags.view.MyConvenientBanner
+                            android:id="@+id/bannerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:autoTurningTime="6000"
+                            app:canLoop="true" />
+
+                    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+                    <LinearLayout
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/bannerIndicatorView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="4dp"
+                        android:orientation="horizontal" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <com.sbl.foags.view.MyAspectRatioLinearLayout
+                        app:myLinearAspectRatio="2.39"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_home_yaoqingbg"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:src="@drawable/ic_home_yaoqing"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="邀请福利"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="做任务得金币"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </com.sbl.foags.view.MyAspectRatioLinearLayout>
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp" />
+
+                    <com.sbl.foags.view.MyAspectRatioLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:myLinearAspectRatio="2.39"
+                        android:background="@drawable/ic_home_bangdanbg"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:src="@drawable/ic_home_bangdan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="榜单"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="做任务得金币"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+
+                    </com.sbl.foags.view.MyAspectRatioLinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/modelsLayout"
+                android:padding="10dp"
+                android:background="@color/color_F5F5F5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_home_selected_model">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/modelsRecyclerView"
+                        android:scrollbars="none"
+                        android:overScrollMode="never"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_gravity="left"
+                        android:background="@drawable/bg_home_selected_model_header"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"/>
+
+                    <View
+                        android:layout_gravity="right"
+                        android:background="@drawable/bg_home_selected_model_tail"
+                        android:layout_width="15dp"
+                        android:layout_height="match_parent"/>
+
+                </FrameLayout>
+
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:background="@drawable/ic_home_title_tip"
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"/>
+
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:textStyle="bold"
+                    android:text="@string/selected_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_333333"/>
+
+            </LinearLayout>
+
+
+            <com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
+                android:id="@+id/recommendRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="none"
+                android:listSelector="#00000000"
+                android:overScrollMode="never"
+                android:scrollbars="none"/>
+
+
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
