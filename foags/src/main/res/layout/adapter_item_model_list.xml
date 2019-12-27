@@ -11,19 +11,11 @@
         android:orientation="horizontal"
         android:padding="15dp">
 
-        <TextView
-            android:id="@+id/rankingLevelView"
-            android:layout_width="18dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_9EA7B9"
-            android:textSize="15sp"
-            android:textStyle="bold" />
 
         <ImageView
-            android:layout_marginLeft="15dp"
             android:id="@+id/headPicView"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:scaleType="centerCrop" />
 
         <LinearLayout
@@ -40,21 +32,20 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_marginRight="10dp"
                     android:id="@+id/nickNameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxEms="6"
                     android:singleLine="true"
-                    android:textColor="@color/color_282828"
+                    android:textColor="@color/color_333333"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/levelView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/bg_user_level"
                     android:paddingLeft="5dp"
                     android:paddingTop="1dp"
@@ -64,41 +55,52 @@
                     android:textSize="10sp" />
 
 
-                <LinearLayout
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="1dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
                     android:visibility="gone"
-                    android:id="@+id/memberLayout"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="8dp"
-                    android:background="@drawable/bg_user_member"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/addressView"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_BECCD9"
+                    android:textSize="13sp" />
 
 
-                    <ImageView
-                        android:id="@+id/memberIconView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="@string/fans"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_BECCD9"
+                    android:textSize="13sp" />
 
-                    <TextView
-                        android:gravity="center"
-                        android:id="@+id/memberView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:textSize="10sp" />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textStyle="bold"
+                    android:id="@+id/fansView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_BECCD9"
+                    android:textSize="15sp" />
 
-
-
-                </LinearLayout>
 
             </LinearLayout>
 
+
+
             <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/descView"
+                android:layout_marginTop="1dp"
+                android:visibility="invisible"
+                android:id="@+id/tagsView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_9EA7B9"
@@ -107,8 +109,16 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/rankTrendView"
+        <TextView
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/bg_user_not_follow"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:text="@string/follow"
+            android:id="@+id/followView"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -117,7 +127,7 @@
     </LinearLayout>
 
     <View
-        android:layout_marginLeft="102dp"
+        android:layout_marginLeft="79dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/color_F2F2F2" />

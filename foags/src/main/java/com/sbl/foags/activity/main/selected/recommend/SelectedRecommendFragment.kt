@@ -10,6 +10,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.bigkoo.convenientbanner.holder.Holder
 import com.sbl.foags.R
+import com.sbl.foags.activity.models.ModelListActivity
 import com.sbl.foags.activity.rank.RankListActivity
 import com.sbl.foags.base.BaseFragment
 import com.sbl.foags.bean.Banner
@@ -216,7 +217,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
     override fun onClick(v: View?) {
         when(v){
             shareLayout -> {
-
+                openActivity(ModelListActivity::class.java)
             }
 
             rankLayout -> {

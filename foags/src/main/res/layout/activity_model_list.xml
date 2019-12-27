@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/backView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@null"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-            android:src="@drawable/ic_back_black" />
+            android:src="@drawable/ic_close_black" />
 
         <com.flyco.tablayout.SlidingScaleTabLayout
             android:id="@+id/tabLayout"
@@ -32,6 +32,16 @@
             app:tl_textSelectSize="22sp"
             app:tl_textUnSelectColor="@color/color_757575"
             app:tl_textUnSelectSize="15sp" />
+
+
+        <ImageButton
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:src="@drawable/ic_home_search" />
 
 
     </LinearLayout>
