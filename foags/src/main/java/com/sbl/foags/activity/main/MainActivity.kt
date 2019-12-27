@@ -19,6 +19,7 @@ import com.sbl.foags.utils.SystemUtil
 import com.sbl.foags.view.CanNotScrollViewPager
 import com.sbl.foags.view.TableView
 
+
 class MainActivity : BaseActivity(),  View.OnClickListener {
 
 
@@ -63,10 +64,10 @@ class MainActivity : BaseActivity(),  View.OnClickListener {
     private lateinit var tabFive: TableView
 
 
-    override fun initView() {
-        setBaseContentView(R.layout.activity_main)
-        this.showBackTip = true
+    override fun initLayout(): Int = R.layout.activity_main
 
+    override fun initView() {
+        this.showBackTip = true
         bindViews()
     }
 

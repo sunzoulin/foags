@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.sbl.foags.R
@@ -41,11 +40,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
         mLoadingLayout.addEmptyRefreshListener(this)
         mLoadingLayout.addErrorRefreshListener(this)
 
+        mLoadingLayout.addView(layoutInflater.inflate(initLayout(), mLoadingLayout, false))
+
         initView()
 
         loadData()
 
     }
+
+    protected abstract fun initLayout(): Int
 
     abstract fun initView()
 
@@ -84,16 +87,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
 
     fun getLoadingLayout(): LoadingLayout {
         return mLoadingLayout
-    }
-
-    private fun setBaseContentView(view: View) {
-        mLoadingLayout.addView(view)
-        showBaseContent()
-    }
-
-    protected fun setBaseContentView(resId: Int) {
-        val view = layoutInflater.inflate(resId, mLoadingLayout, false)
-        setBaseContentView(view)
     }
 
     override fun emptyRefresh() {

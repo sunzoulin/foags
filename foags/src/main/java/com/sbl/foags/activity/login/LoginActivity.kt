@@ -35,10 +35,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         dis = null
     }
 
+    override fun initLayout(): Int = R.layout.activity_login
+
 
     override fun initView() {
-        setBaseContentView(R.layout.activity_login)
-
         bindViews()
     }
 

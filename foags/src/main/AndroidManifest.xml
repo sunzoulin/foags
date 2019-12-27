@@ -80,6 +80,8 @@
 
         <activity android:name=".activity.models.ModelListActivity"/>
 
+        <activity android:name=".activity.search.SearchActivity"/>
+
     </application>
 
 </manifest>

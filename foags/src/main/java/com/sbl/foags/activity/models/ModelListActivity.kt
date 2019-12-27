@@ -33,8 +33,9 @@ class ModelListActivity : BaseActivity(), OnFragmentLoadListener {
 
     private lateinit var viewPager: ViewPager
 
+    override fun initLayout(): Int = R.layout.activity_model_list
+
     override fun initView() {
-        setBaseContentView(R.layout.activity_model_list)
 
         backView = findViewById(R.id.backView)
         tabLayout = findViewById(R.id.tabLayout)

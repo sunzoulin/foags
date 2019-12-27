@@ -31,8 +31,9 @@ class RankListActivity : BaseActivity(), OnFragmentLoadListener {
     private lateinit var tabLayout: SlidingScaleTabLayout
     private lateinit var viewPager: ViewPager
 
+    override fun initLayout(): Int = R.layout.activity_rank_list
+
     override fun initView() {
-        setBaseContentView(R.layout.activity_rank_list)
 
         backView = findViewById(R.id.backView)
         tabLayout = findViewById(R.id.tabLayout)
