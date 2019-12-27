@@ -2,7 +2,6 @@ package com.sbl.foags.activity.main
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.sbl.foags.R
@@ -64,13 +63,15 @@ class MainActivity : BaseActivity(),  View.OnClickListener {
     private lateinit var tabFive: TableView
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun initView() {
+        setBaseContentView(R.layout.activity_main)
         this.showBackTip = true
 
-        setContentView(R.layout.activity_main)
+        bindViews()
+    }
 
+
+    private fun bindViews(){
         viewPager = findViewById(R.id.mainViewPager)
         tabOne = findViewById(R.id.tab_one)
         tabTwo = findViewById(R.id.tab_two)
@@ -110,10 +111,13 @@ class MainActivity : BaseActivity(),  View.OnClickListener {
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = fragments.size
 
-
         selectTab(0)
     }
 
+
+    override fun loadData() {
+
+    }
 
 
     override fun onClick(v: View?) {

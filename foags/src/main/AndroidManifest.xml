@@ -76,6 +76,8 @@
 
         <activity android:name=".activity.register.RegisterActivity"/>
 
+        <activity android:name=".activity.rank.RankListActivity"/>
+
     </application>
 
 </manifest>

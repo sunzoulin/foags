@@ -19,7 +19,14 @@
     <string name="do_login_will_agree_agreement">登录即表示同意《用户协议》</string>
     <string name="selected_recommend">精选推荐</string>
     <string name="more_models">更多嫩模 ></string>
-
     <string name="follow_person_moment">关注人的动态</string>
-
+    <string name="near_relation_rank">大蜜榜</string>
+    <string name="hot_live_rank">热播榜</string>
+    <string name="hot_rich_rank">土豪榜</string>
+    <string name="day_rank">日榜</string>
+    <string name="week_rank">周榜</string>
+    <string name="month_rank">月榜</string>
+    <string name="list_footer_loading">正在加载中…</string>
+    <string name="list_footer_network_error">点击重新加载</string>
+    <string name="list_footer_end">已经到底了</string>
 </resources>

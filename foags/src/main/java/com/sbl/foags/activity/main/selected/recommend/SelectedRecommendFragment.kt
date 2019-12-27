@@ -10,6 +10,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator
 import com.bigkoo.convenientbanner.holder.Holder
 import com.sbl.foags.R
+import com.sbl.foags.activity.rank.RankListActivity
 import com.sbl.foags.base.BaseFragment
 import com.sbl.foags.bean.Banner
 import com.sbl.foags.bean.User
@@ -17,6 +18,7 @@ import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.*
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.view.MyAspectRatioLinearLayout
 import com.sbl.foags.view.MyConvenientBanner
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
 
@@ -28,6 +30,8 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
     private lateinit var bannerLayout: LinearLayout
     private lateinit var bannerView: MyConvenientBanner<Banner>
     private lateinit var bannerIndicatorView: LinearLayout
+    private lateinit var shareLayout: MyAspectRatioLinearLayout
+    private lateinit var rankLayout: MyAspectRatioLinearLayout
     private lateinit var modelsLayout: FrameLayout
     private lateinit var modelsRecyclerView: RecyclerView
     private lateinit var recommendRecyclerView: FloatHeaderAndFooterRecyclerView
@@ -49,10 +53,10 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
 
         val models = arrayListOf<User>()
-        models.add(User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12))
-        models.add(User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30))
-        models.add(User("3", "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg", "王五", 5))
-        models.add(User(UIUtils.getString(R.string.more_models), "", "", 1))
+        models.add(User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0))
+        models.add(User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0))
+        models.add(User("3", "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg", "王五", 5, 0))
+        models.add(User(UIUtils.getString(R.string.more_models), "", "", 1, 0))
 
         setModels(models)
 
@@ -62,7 +66,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         val cube1 = CubeWorkBean("111",
             CubeType.WORK,
-            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12),
+            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0),
             false,
             99.0,
             23,
@@ -81,7 +85,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         val cube2 = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30),
+            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
             true,
             190.0,
             9,
@@ -139,13 +143,16 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
         bannerLayout = getViewById(R.id.bannerLayout)
         bannerView = getViewById(R.id.bannerView)
         bannerIndicatorView = getViewById(R.id.bannerIndicatorView)
+        shareLayout = getViewById(R.id.shareLayout)
+        rankLayout = getViewById(R.id.rankLayout)
         modelsLayout = getViewById(R.id.modelsLayout)
         modelsRecyclerView =  getViewById(R.id.modelsRecyclerView)
         recommendRecyclerView =  getViewById(R.id.recommendRecyclerView)
 
         swipeToLoadLayout.isLoadMoreEnabled = false
         swipeToLoadLayout.setOnRefreshListener(this)
-
+        shareLayout.setOnClickListener(this)
+        rankLayout.setOnClickListener(this)
 
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
@@ -207,7 +214,15 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
     fun getFragmentTitle(): String = "推荐"
 
     override fun onClick(v: View?) {
+        when(v){
+            shareLayout -> {
 
+            }
+
+            rankLayout -> {
+                openActivity(RankListActivity::class.java)
+            }
+        }
     }
 
     override fun onRefresh() {

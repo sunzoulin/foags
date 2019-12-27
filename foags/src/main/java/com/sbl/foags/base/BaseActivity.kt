@@ -15,7 +15,7 @@ import com.sbl.foags.rxbus.RxManager
 import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.LoadingLayout
 
-open class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, LoadingLayout.EmptyRefreshListener, LoadingLayout.ErrorRefreshListener {
+abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, LoadingLayout.EmptyRefreshListener, LoadingLayout.ErrorRefreshListener {
 
 
     protected lateinit var mLoadingLayout: LoadingLayout
@@ -47,9 +47,9 @@ open class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loading
 
     }
 
-    protected fun initView() {}
+    abstract fun initView()
 
-    protected fun loadData() {}
+    abstract fun loadData()
 
 
     fun getRxManager(): RxManager {

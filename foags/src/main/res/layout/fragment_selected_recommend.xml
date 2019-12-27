@@ -75,6 +75,7 @@
 
 
                     <com.sbl.foags.view.MyAspectRatioLinearLayout
+                        android:id="@+id/shareLayout"
                         app:myLinearAspectRatio="2.39"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -122,6 +123,7 @@
                         android:layout_height="1dp" />
 
                     <com.sbl.foags.view.MyAspectRatioLinearLayout
+                        android:id="@+id/rankLayout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

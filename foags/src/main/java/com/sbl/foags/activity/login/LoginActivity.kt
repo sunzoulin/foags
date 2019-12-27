@@ -1,6 +1,5 @@
 package com.sbl.foags.activity.login
 
-import android.os.Bundle
 import android.view.View
 import android.widget.*
 import com.sbl.foags.R
@@ -29,15 +28,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     private val timeInterval: Int = 120
     private var dis: Disposable? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        bindViews()
-
-        countryCodeView.text = "+86"
-    }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -46,7 +36,21 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
 
+    override fun initView() {
+        setBaseContentView(R.layout.activity_login)
+
+        bindViews()
+    }
+
+    override fun loadData() {
+
+        countryCodeView.text = "+86"
+    }
+
+
     private fun bindViews(){
+
+
         closeView = findViewById(R.id.closeView)
         countryCodeLayout = findViewById(R.id.countryCodeLayout)
         countryCodeView = findViewById(R.id.countryCodeView)
