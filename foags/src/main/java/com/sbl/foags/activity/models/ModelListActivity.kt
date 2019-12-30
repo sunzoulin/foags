@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import com.flyco.tablayout.SlidingScaleTabLayout
 import com.sbl.foags.R
 import com.sbl.foags.activity.models.data.ModelListType
+import com.sbl.foags.activity.search.SearchUserActivity
 import com.sbl.foags.adapter.OnFragmentLoadListener
 import com.sbl.foags.adapter.PagerViewFragmentAdapter
 import com.sbl.foags.base.BaseActivity
@@ -48,6 +49,8 @@ class ModelListActivity : BaseActivity(), OnFragmentLoadListener {
         viewPager.offscreenPageLimit = pagerAdapterCount
         viewPager.adapter = PagerViewFragmentAdapter(supportFragmentManager, this)
         tabLayout.setViewPager(viewPager)
+
+        searchView.setOnClickListener { openActivity(SearchUserActivity::class.java) }
     }
 
     override fun loadData() {

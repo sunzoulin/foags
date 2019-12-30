@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+
+        <ImageView
+            android:id="@+id/headPicView"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/nickNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="6"
+                android:singleLine="true"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:visibility="invisible"
+                android:id="@+id/tagsView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_9EA7B9"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="79dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_F2F2F2" />
+
+</LinearLayout>

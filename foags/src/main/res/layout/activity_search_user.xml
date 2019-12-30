@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:background="@drawable/bg_search_edit"
+            android:layout_marginLeft="15dp"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:textSize="14sp"
+                android:textColor="@color/color_333333"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:id="@+id/searchView"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/searchClearView"
+                android:layout_marginRight="10dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:background="@drawable/bg_search_edit_clear_btn"
+                android:text="X"
+                android:gravity="center"
+                android:textSize="8sp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/closeView"
+            android:padding="15dp"
+            android:textColor="@color/color_9EA7B9"
+            android:text="@string/cancel"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+    <com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
+        android:id="@+id/searchRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+
+
+</LinearLayout>
+
