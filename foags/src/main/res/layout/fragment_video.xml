@@ -2,9 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+
+        <com.flyco.tablayout.SlidingScaleTabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="43dp"
+            app:tl_indicator_corner_radius="2dp"
+            app:tl_indicator_height="2dp"
+            app:tl_indicator_width="10dp"
+            app:tl_indicator_margin_bottom="5dp"
+            app:tl_indicator_color="@color/color_FD596A"
+            app:tl_tab_gravity="Bottom"
+            app:tl_tab_padding="15dp"
+            app:tl_tab_marginBottom="10dp"
+            app:tl_textSelectColor="@color/color_333333"
+            app:tl_textSelectSize="24sp"
+            app:tl_textUnSelectColor="@color/color_666666"
+            app:tl_textUnSelectSize="15sp" />
+
+        <ImageView
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:src="@drawable/ic_home_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

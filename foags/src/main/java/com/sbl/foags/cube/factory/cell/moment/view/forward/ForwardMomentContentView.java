@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.sbl.foags.cube.bean.WorkContentType;
-import com.sbl.foags.cube.factory.cell.home.view.WorkAlbumView;
+import com.sbl.foags.cube.factory.cell.home.view.WorkPhotoView;
 import com.sbl.foags.cube.factory.cell.home.view.WorkContentViewListener;
 import com.sbl.foags.cube.factory.cell.home.view.WorkVideoView;
 
@@ -48,7 +48,7 @@ public class ForwardMomentContentView extends FrameLayout {
         if (contentType == WorkContentType.PHOTO) {
 
             if(photosUrl != null && !photosUrl.isEmpty()){
-                v = new WorkAlbumView(getContext(), photosUrl, totalPhotoCount, listener);
+                v = new WorkPhotoView(getContext(), photosUrl, totalPhotoCount, listener);
             }
 
         } else if (contentType == WorkContentType.VIDEO) {

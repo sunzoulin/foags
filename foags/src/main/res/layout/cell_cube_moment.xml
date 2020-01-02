@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:gravity="center_vertical"
-        android:padding="15dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -83,9 +83,9 @@
 
     <TextView
         android:id="@+id/descView"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/color_333333"
         android:textSize="14sp"
         android:layout_width="wrap_content"
@@ -94,15 +94,15 @@
 
     <FrameLayout
         android:id="@+id/contentBaseLayout"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
 
     <LinearLayout
-        android:paddingBottom="15dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

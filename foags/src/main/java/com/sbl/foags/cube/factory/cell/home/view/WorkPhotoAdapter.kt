@@ -14,12 +14,12 @@ import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 import java.util.ArrayList
 
 
-class WorkAlbumAdapter(val context: Context,
+class WorkPhotoAdapter(val context: Context,
                        val listener: WorkContentViewListener,
                        val list: ArrayList<String>,
                        private val totalPhotoCount: Int) : BaseRecycleViewAdapter<String>(context, list) {
 
-    override fun getLayoutId(viewType: Int): Int = R.layout.adapter_item_work_album
+    override fun getLayoutId(viewType: Int): Int = R.layout.adapter_item_work_photo
 
     override fun convert(holder: ViewHolder, item: String, position: Int) {
 

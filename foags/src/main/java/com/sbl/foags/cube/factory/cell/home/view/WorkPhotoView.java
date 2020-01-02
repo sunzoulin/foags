@@ -13,16 +13,16 @@ import com.sbl.foags.R;
 import java.util.ArrayList;
 
 
-public class WorkAlbumView extends FrameLayout {
+public class WorkPhotoView extends FrameLayout {
 
     private RecyclerView coversView;
     private WorkContentViewListener listener;
-    private WorkAlbumAdapter adapter;
+    private WorkPhotoAdapter adapter;
 
     private int totalPhotoCount;
     private ArrayList<String> photosUrl;
 
-    public WorkAlbumView(Context context, ArrayList<String> photosUrl, int totalPhotoCount, WorkContentViewListener listener) {
+    public WorkPhotoView(Context context, ArrayList<String> photosUrl, int totalPhotoCount, WorkContentViewListener listener) {
         super(context);
         this.listener = listener;
         this.totalPhotoCount = totalPhotoCount;
@@ -31,17 +31,17 @@ public class WorkAlbumView extends FrameLayout {
         initViews();
     }
 
-    public WorkAlbumView(Context context, AttributeSet attrs) {
+    public WorkPhotoView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public WorkAlbumView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public WorkPhotoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     public void initViews() {
 
-        LayoutInflater.from(getContext()).inflate(R.layout.content_view_work_album_layout, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.content_view_work_photo_layout, this);
 
         coversView = findViewById(R.id.coversView);
 
@@ -49,7 +49,7 @@ public class WorkAlbumView extends FrameLayout {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         coversView.setLayoutManager(layoutManager);
 
-        adapter = new WorkAlbumAdapter(getContext(), listener, photosUrl, totalPhotoCount);
+        adapter = new WorkPhotoAdapter(getContext(), listener, photosUrl, totalPhotoCount);
         coversView.setAdapter(adapter);
     }
 }

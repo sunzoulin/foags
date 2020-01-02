@@ -45,7 +45,7 @@ public class WorkContentView extends FrameLayout {
         if (contentType == WorkContentType.PHOTO) {
 
             if(photos != null && !photos.isEmpty()) {
-                v = new WorkAlbumView(getContext(), photos, totalPhotoCount, listener);
+                v = new WorkPhotoView(getContext(), photos, totalPhotoCount, listener);
             }
         } else if (contentType == WorkContentType.VIDEO) {
             if(!video.isEmpty()) {

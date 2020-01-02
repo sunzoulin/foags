@@ -15,7 +15,10 @@ import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 
 abstract class CubeMomentCell(val context: Context, val holder: BaseRecycleViewAdapter.ViewHolder) : BaseCell<CubeMomentBean> {
 
-
+    companion object {
+        @JvmStatic
+        fun getLayoutId(): Int = R.layout.cell_cube_moment
+    }
 
     private lateinit var headPicView: ImageView
     private lateinit var nickNameView: TextView
@@ -28,7 +31,6 @@ abstract class CubeMomentCell(val context: Context, val holder: BaseRecycleViewA
     private lateinit var commentCountView: TextView
     private lateinit var likeCountView: TextView
     private lateinit var shareBtnView: ImageView
-
 
 
     override fun showData(momentBean: CubeMomentBean) {

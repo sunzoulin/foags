@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+
+        <com.sbl.foags.view.MyAspectRatioFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:myFrameAspectRatio="0.66">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/albumCoverView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+
+        <TextView
+            android:paddingLeft="6dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="6dp"
+            android:background="@drawable/bg_album_item_price"
+            android:layout_margin="10dp"
+            android:layout_gravity="right|top"
+            android:id="@+id/priceView"
+            android:drawableLeft="@drawable/ic_jinbi"
+            android:drawablePadding="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_FD596A"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:background="@drawable/bg_album_big_item_user_info"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/headPicView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/nickNameView"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/descView"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:paddingRight="13dp"
+                android:paddingLeft="13dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:background="@drawable/bg_album_big_item_photo_count"
+                android:id="@+id/countView"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+</LinearLayout>

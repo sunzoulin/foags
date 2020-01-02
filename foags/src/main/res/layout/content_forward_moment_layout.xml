@@ -10,8 +10,8 @@
 
 
     <TextView
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/originalNickNameView"
         android:textColor="@color/color_FF5E99"
         android:textSize="14sp"
@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/originalDescView"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/color_757575"
         android:textSize="14sp"
         android:layout_width="wrap_content"

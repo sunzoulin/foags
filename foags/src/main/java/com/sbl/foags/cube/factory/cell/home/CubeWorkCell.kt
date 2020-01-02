@@ -21,6 +21,12 @@ class CubeWorkCell(val context: Context,
         View.OnClickListener,
         WorkContentViewListener {
 
+
+    companion object {
+        @JvmStatic
+        fun getLayoutId(): Int = R.layout.cell_cube_work
+    }
+
     private lateinit var contentBaseLayout: FrameLayout
     private lateinit var headPicView: ImageView
     private lateinit var nickNameView: TextView
