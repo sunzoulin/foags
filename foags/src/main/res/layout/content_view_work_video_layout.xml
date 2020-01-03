@@ -36,7 +36,7 @@
             android:paddingRight="7dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:background="@drawable/bg_radius_360_solid_50333333"
+            android:background="@drawable/bg_video_duration_view"
             android:textColor="@color/white"
             android:textSize="12sp"
             android:layout_width="wrap_content"

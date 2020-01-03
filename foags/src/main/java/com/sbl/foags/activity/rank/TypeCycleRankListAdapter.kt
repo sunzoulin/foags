@@ -11,6 +11,8 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.rank.data.RankBean
 import com.sbl.foags.activity.rank.data.RankType
+import com.sbl.foags.view.UserLevelView
+import com.sbl.foags.view.UserMemberView
 import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 import java.util.*
 
@@ -26,11 +28,9 @@ class TypeCycleRankListAdapter(val context: Context, private val type: RankType,
         val headPicView = holder.getView<ImageView>(R.id.headPicView)
         val nickNameView = holder.getView<TextView>(R.id.nickNameView)
 
-        val levelView = holder.getView<TextView>(R.id.levelView)
+        val levelView = holder.getView<UserLevelView>(R.id.levelView)
 
-        val memberLayout = holder.getView<LinearLayout>(R.id.memberLayout)
-        val memberIconView = holder.getView<ImageView>(R.id.memberIconView)
-        val memberView = holder.getView<TextView>(R.id.memberView)
+        val memberView = holder.getView<UserMemberView>(R.id.memberView)
 
         val descView = holder.getView<TextView>(R.id.descView)
         val rankTrendView = holder.getView<ImageView>(R.id.rankTrendView)
@@ -44,15 +44,14 @@ class TypeCycleRankListAdapter(val context: Context, private val type: RankType,
         if(type == RankType.HotRich){
             levelView.visibility = View.GONE
 
-            memberLayout.visibility = View.VISIBLE
-            memberIconView.setImageResource(R.drawable.ic_use_4)
-            memberView.text = "LV${item.user.memberLevel}"
+            memberView.visibility = View.VISIBLE
+            memberView.setLevel(item.user.memberLevel)
 
         }else{
             levelView.visibility = View.VISIBLE
-            levelView.text = "LV${item.user.level}"
+            levelView.setLevel(item.user.level)
 
-            memberLayout.visibility = View.GONE
+            memberView.visibility = View.GONE
         }
 
 

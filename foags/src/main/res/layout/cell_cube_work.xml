@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
@@ -49,16 +50,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <TextView
+                <com.sbl.foags.view.UserLevelView
                     android:id="@+id/levelView"
                     android:layout_marginLeft="5dp"
-                    android:paddingTop="1dp"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:background="@drawable/bg_user_level"
-                    android:textColor="@color/color_FF5E99"
-                    android:textSize="10sp"
+                    app:paddingTop="1dp"
+                    app:paddingBottom="1dp"
+                    app:paddingLeft="5dp"
+                    app:paddingRight="5dp"
+                    app:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

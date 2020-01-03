@@ -30,6 +30,7 @@
     <string name="list_footer_network_error">点击重新加载</string>
     <string name="list_footer_end">已经到底了</string>
 
+    <string name="friend">好友</string>
     <string name="follow">关注</string>
     <string name="big_v">大V</string>
     <string name="new_show">新秀</string>
@@ -49,4 +50,25 @@
     <string name="portrait_album">明星写真</string>
     <string name="hat_album">帽控</string>
     <string name="yoga_album">瑜伽</string>
+
+
+    <string name="todo_share">去邀请</string>
+    <string name="share_welfare">邀请福利</string>
+    <string name="unlocking_times">解锁次数</string>
+    <string name="share_friends">邀请好友</string>
+    <string name="daily_tasks">每日任务</string>
+    <string name="my_money_bag">我的钱包</string>
+    <string name="collection_and_bought">收藏和已购</string>
+    <string name="authentication_center">认证中心</string>
+    <string name="not_disturb_model">勿扰模式</string>
+    <string name="not_receive_video_chat">不接收视频来电</string>
+    <string name="safe_model">安全模式</string>
+    <string name="service_center">客服中心</string>
+    <string name="feedback">意见反馈</string>
+    <string name="about_us">关于我们</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="check_update">检查更新</string>
+    <string name="logout">退出登录</string>
+    <string name="setting">设置</string>
+    
 </resources>

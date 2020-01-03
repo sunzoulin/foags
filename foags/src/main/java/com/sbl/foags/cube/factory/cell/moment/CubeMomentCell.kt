@@ -10,6 +10,7 @@ import com.sbl.foags.R
 import com.sbl.foags.cube.bean.CubeMomentBean
 import com.sbl.foags.cube.factory.cell.BaseCell
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.view.UserLevelView
 import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 
 
@@ -22,7 +23,7 @@ abstract class CubeMomentCell(val context: Context, val holder: BaseRecycleViewA
 
     private lateinit var headPicView: ImageView
     private lateinit var nickNameView: TextView
-    private lateinit var levelView: TextView
+    private lateinit var levelView: UserLevelView
     private lateinit var releaseTimeView: TextView
     private lateinit var moreBtnView: ImageView
     private lateinit var descView: TextView
@@ -50,7 +51,12 @@ abstract class CubeMomentCell(val context: Context, val holder: BaseRecycleViewA
 
         Glide.with(context).load(momentBean.user.headPic).transform(CircleCrop()).into(headPicView)
         nickNameView.text = momentBean.user.nickName
-        levelView.text = "LV${momentBean.user.level}"
+        if(momentBean.user.level > 0){
+            levelView.visibility = View.VISIBLE
+            levelView.setLevel(momentBean.user.level)
+        }else{
+            levelView.visibility = View.GONE
+        }
         releaseTimeView.text = momentBean.releaseTimeStr
         if(momentBean.desc.isEmpty()){
             descView.visibility = View.GONE

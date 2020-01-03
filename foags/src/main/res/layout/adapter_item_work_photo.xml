@@ -25,7 +25,7 @@
 
         <FrameLayout
             android:visibility="gone"
-            android:background="@drawable/bg_radius_6_solid_50333333"
+            android:background="@drawable/bg_photo_more_view"
             android:id="@+id/moreLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">

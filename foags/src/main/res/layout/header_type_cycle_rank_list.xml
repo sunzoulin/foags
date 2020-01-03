@@ -88,7 +88,7 @@
                     android:layout_marginTop="7dp"
                     android:gravity="center_vertical"
                     android:includeFontPadding="false"
-                    android:textColor="@color/color_80FFFFFF"
+                    android:textColor="@color/color_50FFFFFF"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -155,7 +155,7 @@
                     android:layout_marginTop="7dp"
                     android:gravity="center_vertical"
                     android:includeFontPadding="false"
-                    android:textColor="@color/color_80FFFFFF"
+                    android:textColor="@color/color_50FFFFFF"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -220,7 +220,7 @@
                     android:layout_marginTop="7dp"
                     android:gravity="center_vertical"
                     android:includeFontPadding="false"
-                    android:textColor="@color/color_80FFFFFF"
+                    android:textColor="@color/color_50FFFFFF"
                     android:textSize="12sp" />
 
             </LinearLayout>

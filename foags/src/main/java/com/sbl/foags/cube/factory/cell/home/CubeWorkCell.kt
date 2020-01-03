@@ -13,6 +13,7 @@ import com.sbl.foags.cube.factory.cell.BaseCell
 import com.sbl.foags.cube.factory.cell.home.view.WorkContentView
 import com.sbl.foags.cube.factory.cell.home.view.WorkContentViewListener
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.view.UserLevelView
 import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 
 
@@ -30,7 +31,7 @@ class CubeWorkCell(val context: Context,
     private lateinit var contentBaseLayout: FrameLayout
     private lateinit var headPicView: ImageView
     private lateinit var nickNameView: TextView
-    private lateinit var levelView: TextView
+    private lateinit var levelView: UserLevelView
     private lateinit var descView: TextView
     private lateinit var priceView: TextView
 
@@ -47,7 +48,12 @@ class CubeWorkCell(val context: Context,
 
         Glide.with(context).load(workBean.user.headPic).transform(CircleCrop()).into(headPicView)
         nickNameView.text = workBean.user.nickName
-        levelView.text = "LV${workBean.user.level}"
+        if(workBean.user.level > 0){
+            levelView.visibility = View.VISIBLE
+            levelView.setLevel(workBean.user.level)
+        }else{
+            levelView.visibility = View.GONE
+        }
 
 
         if(workBean.haveSeePermission()){

@@ -83,6 +83,9 @@
         <activity android:name=".activity.search.SearchUserActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
 
+        <activity android:name=".activity.setting.SettingActivity"/>
+
+
     </application>
 
 </manifest>

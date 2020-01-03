@@ -9,6 +9,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -292,4 +293,43 @@ public class SystemUtil {
     public static String convertPathToUri(String path){
         return "file://" + path;
     }
+
+    /**
+     * 当前版本
+     *
+     * @return 版本名称
+     */
+    public static String getAppVersion(Context context) {
+        PackageInfo packInfo = getAppPackageInfo(context);
+        if (packInfo == null) {
+            return "";
+        }
+        String version = packInfo.versionName;
+        if (TextUtils.isEmpty(version)) {
+            version = "";
+        }
+        return version;
+    }
+
+
+
+    /**
+     * 使用PackageManager的同步锁
+     */
+    private static final Object PACKAGE_MANAGER_LOCK = new Object();
+
+
+    private static PackageInfo getAppPackageInfo(Context context) {
+        PackageInfo packInfo = null;
+        synchronized (PACKAGE_MANAGER_LOCK) {
+            try {
+                PackageManager packageManager = context.getPackageManager();
+                packInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return packInfo;
+    }
+
 }

@@ -7,7 +7,7 @@
     <FrameLayout
         android:visibility="gone"
         android:id="@+id/headPicOneLayout"
-        android:background="@drawable/bg_radius_360_solid_white"
+        android:background="@drawable/bg_user_head_pic"
         android:layout_width="32dp"
         android:layout_height="32dp">
 
@@ -24,7 +24,7 @@
         android:id="@+id/headPicTwoLayout"
         android:visibility="gone"
         android:layout_marginLeft="20dp"
-        android:background="@drawable/bg_radius_360_solid_white"
+        android:background="@drawable/bg_user_head_pic"
         android:layout_width="32dp"
         android:layout_height="32dp">
 
@@ -42,7 +42,7 @@
         android:id="@+id/headPicThreeLayout"
         android:visibility="gone"
         android:layout_marginLeft="40dp"
-        android:background="@drawable/bg_radius_360_solid_white"
+        android:background="@drawable/bg_user_head_pic"
         android:layout_width="32dp"
         android:layout_height="32dp">
 
@@ -59,7 +59,7 @@
         android:id="@+id/headPicFourLayout"
         android:visibility="gone"
         android:layout_marginLeft="60dp"
-        android:background="@drawable/bg_radius_360_solid_white"
+        android:background="@drawable/bg_user_head_pic"
         android:layout_width="32dp"
         android:layout_height="32dp">
 

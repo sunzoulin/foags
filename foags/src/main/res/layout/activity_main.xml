@@ -6,11 +6,25 @@
     android:orientation="vertical">
 
 
-    <com.sbl.foags.view.CanNotScrollViewPager
-        android:id="@+id/mainViewPager"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+
+
+        <com.sbl.foags.view.CanNotScrollViewPager
+            android:id="@+id/mainViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:background="@drawable/bg_main_tab_top"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+    </FrameLayout>
+
 
 
     <LinearLayout

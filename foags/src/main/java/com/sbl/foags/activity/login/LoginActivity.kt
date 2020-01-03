@@ -97,6 +97,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
                 MainActivity.open(this)
 
+                finish()
             }
 
             agreementView -> {

@@ -25,20 +25,13 @@ class MainActivity : BaseActivity(),  View.OnClickListener {
 
     companion object {
 
-        /**
-         * 此方法相当于创建新的MainActivity
-         * */
         fun open(context: Context) {
             open(context, 0)
         }
 
-        /**
-         * 此方法相当于创建新的MainActivity
-         * */
         fun open(context: Context, position: Int) {
             val intent = Intent(context, MainActivity::class.java)
             intent.putExtra("position", position)
-            // 判断是否已经打开过MainActivity
             if (ActivityManager.getInstance().findActivityByClass(MainActivity::class.java) != null) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
