@@ -6,6 +6,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.sbl.foags.R
 import com.sbl.foags.activity.login.LoginActivity
+import com.sbl.foags.activity.setting.about.AboutUsActivity
+import com.sbl.foags.activity.setting.feedback.FeedbackActivity
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.manager.ActivityManager
 import com.sbl.foags.utils.SystemUtil
@@ -63,6 +65,14 @@ class SettingActivity: BaseActivity(), View.OnClickListener {
         when(v){
             backView -> {
                 finish()
+            }
+
+            feedbackLayout -> {
+                openActivity(FeedbackActivity::class.java)
+            }
+
+            aboutUsLayout -> {
+                openActivity(AboutUsActivity::class.java)
             }
 
             logoutView -> {

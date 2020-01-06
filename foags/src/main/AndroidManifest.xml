@@ -85,6 +85,9 @@
 
         <activity android:name=".activity.setting.SettingActivity"/>
 
+        <activity android:name=".activity.setting.about.AboutUsActivity"/>
+
+        <activity android:name=".activity.setting.feedback.FeedbackActivity"/>
 
     </application>
 

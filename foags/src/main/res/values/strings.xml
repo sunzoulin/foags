@@ -70,5 +70,7 @@
     <string name="check_update">检查更新</string>
     <string name="logout">退出登录</string>
     <string name="setting">设置</string>
-    
+
+    <string name="asian_model_stars">亚模之星</string>
+    <string name="please_input_feedback">请输入您对我们的建议</string>
 </resources>
