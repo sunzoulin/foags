@@ -30,8 +30,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
-
+        initStatusBarMode()
 
         setContentView(R.layout.activity_base)
         rootView = findViewById(R.id.activity_base)
@@ -45,10 +44,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
         initView()
 
         loadData()
-
     }
 
-    protected abstract fun initLayout(): Int
+
+    abstract fun initStatusBarMode()
+
+    abstract fun initLayout(): Int
 
     abstract fun initView()
 

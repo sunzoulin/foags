@@ -10,6 +10,7 @@ import com.sbl.foags.adapter.OnFragmentLoadListener
 import com.sbl.foags.adapter.PagerViewFragmentAdapter
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 
 
 class RankListActivity : BaseActivity(), OnFragmentLoadListener {
@@ -30,6 +31,10 @@ class RankListActivity : BaseActivity(), OnFragmentLoadListener {
     private lateinit var backView: ImageView
     private lateinit var tabLayout: SlidingScaleTabLayout
     private lateinit var viewPager: ViewPager
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
     override fun initLayout(): Int = R.layout.activity_rank_list
 

@@ -5,6 +5,7 @@ import android.widget.*
 import com.sbl.foags.R
 import com.sbl.foags.activity.main.MainActivity
 import com.sbl.foags.base.BaseActivity
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -33,6 +34,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         super.onDestroy()
         dis?.dispose()
         dis = null
+    }
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
     }
 
     override fun initLayout(): Int = R.layout.activity_login

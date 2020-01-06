@@ -7,12 +7,18 @@ import android.widget.TextView
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 
 class FeedbackActivity: BaseActivity(), View.OnClickListener {
 
     private lateinit var backView: ImageView
     private lateinit var titleView: TextView
     private lateinit var feedbackView: EditText
+
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
     override fun initLayout(): Int = R.layout.activity_feedback
 

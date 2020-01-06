@@ -11,7 +11,7 @@
 
     <style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:fitsSystemWindows">true</item>
+<!--        <item name="android:fitsSystemWindows">true</item>-->
     </style>
 
     <style name="AppLauncherTheme" parent="MyAppTheme">

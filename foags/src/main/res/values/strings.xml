@@ -73,4 +73,9 @@
 
     <string name="asian_model_stars">亚模之星</string>
     <string name="please_input_feedback">请输入您对我们的建议</string>
+    <string name="my_lollipop">我的棒棒糖</string>
+    <string name="my_diamonds">我的钻石</string>
+    <string name="recharge">充值</string>
+    <string name="budget_definite">收支明细</string>
+    <string name="cash_withdrawal">提现</string>
 </resources>

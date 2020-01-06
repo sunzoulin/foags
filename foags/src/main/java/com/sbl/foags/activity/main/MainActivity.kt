@@ -16,6 +16,7 @@ import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.base.BaseFragment
 import com.sbl.foags.manager.ActivityManager
 import com.sbl.foags.utils.SystemUtil
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.CanNotScrollViewPager
 import com.sbl.foags.view.TableView
 
@@ -55,6 +56,11 @@ class MainActivity : BaseActivity(),  View.OnClickListener {
     private lateinit var tabThree: TableView
     private lateinit var tabFour: TableView
     private lateinit var tabFive: TableView
+
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
 
     override fun initLayout(): Int = R.layout.activity_main

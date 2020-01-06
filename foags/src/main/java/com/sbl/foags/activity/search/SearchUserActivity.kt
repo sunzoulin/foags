@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.bean.User
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
 import com.sbl.foags.view.recycler.other.HeaderAndFooterRecyclerViewAdapter
 
@@ -24,6 +25,11 @@ class SearchUserActivity: BaseActivity(), TextWatcher {
     private lateinit var searchUserAdapter: SearchUserAdapter
     private lateinit var baseAdapter: HeaderAndFooterRecyclerViewAdapter
     private val modelList = arrayListOf<User>()
+
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
     override fun initLayout(): Int = R.layout.activity_search_user
 

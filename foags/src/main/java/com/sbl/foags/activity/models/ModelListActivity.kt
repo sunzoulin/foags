@@ -11,6 +11,7 @@ import com.sbl.foags.adapter.OnFragmentLoadListener
 import com.sbl.foags.adapter.PagerViewFragmentAdapter
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 
 
 class ModelListActivity : BaseActivity(), OnFragmentLoadListener {
@@ -33,6 +34,11 @@ class ModelListActivity : BaseActivity(), OnFragmentLoadListener {
     private lateinit var searchView: ImageView
 
     private lateinit var viewPager: ViewPager
+
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
     override fun initLayout(): Int = R.layout.activity_model_list
 

@@ -7,6 +7,7 @@ import com.sbl.foags.R
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.utils.SystemUtil
 import com.sbl.foags.utils.UIUtils
+import com.sbl.foags.utils.statusbar.StatusBarUtil
 
 
 class AboutUsActivity: BaseActivity(), View.OnClickListener {
@@ -15,6 +16,10 @@ class AboutUsActivity: BaseActivity(), View.OnClickListener {
     private lateinit var titleView: TextView
     private lateinit var versionView: TextView
 
+
+    override fun initStatusBarMode() {
+        StatusBarUtil.setStatusBarMode(this, true, R.color.white)
+    }
 
     override fun initLayout(): Int = R.layout.activity_about_us
 

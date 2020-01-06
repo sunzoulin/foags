@@ -9,6 +9,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
+import com.sbl.foags.activity.moenybag.MyMoneyBagActivity
 import com.sbl.foags.activity.setting.SettingActivity
 import com.sbl.foags.base.BaseFragment
 import com.sbl.foags.view.MySwitchView
@@ -116,6 +117,10 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
 
     override fun onClick(v: View?) {
         when(v){
+            moneyBagLayout -> {
+                openActivity(MyMoneyBagActivity::class.java)
+            }
+
             settingView -> {
                 openActivity(SettingActivity::class.java)
             }
