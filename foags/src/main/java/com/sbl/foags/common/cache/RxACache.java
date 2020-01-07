@@ -5,10 +5,8 @@ import com.sbl.foags.common.config.CacheConstants;
 import com.sbl.foags.user.User;
 import com.sbl.foags.utils.StringUtils;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
 
 
 public class RxACache {
@@ -49,7 +47,7 @@ public class RxACache {
         cacheTimes.put(key, time);
     }
 
-    public <T extends Serializable> T get(String key) {
+    public <T extends Object> T get(String key) {
         // 注意此处的key不可以为空，否则返回null
         return StringUtils.isEmpty(key) ? null : (T) aCache.getAsObject(key);
     }

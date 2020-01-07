@@ -95,6 +95,9 @@
 
         <activity android:name=".activity.cube.comment.AllCommentActivity"/>
 
+        <activity android:name=".activity.cube.photo.CubePhotoDetailActivity"
+            android:theme="@style/CubePhotoDetailTheme"/>
+
     </application>
 
 </manifest>

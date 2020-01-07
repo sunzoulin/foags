@@ -11,10 +11,11 @@
     <color name="color_10000000">#1A000000</color>
     <color name="color_20000000">#33000000</color>
     <color name="color_50000000">#80000000</color>
-    <color name="color_80FFFFFF">#CCFFFFFF</color>
-    <color name="color_50FFFFFF">#80FFFFFF</color>
-    <color name="color_50333333">#80333333</color>
     <color name="color_30FFFFFF">#4DFFFFFF</color>
+    <color name="color_50FFFFFF">#80FFFFFF</color>
+    <color name="color_80FFFFFF">#CCFFFFFF</color>
+    <color name="color_50333333">#80333333</color>
+    <color name="color_80333333">#CC333333</color>
 
 
 

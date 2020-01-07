@@ -13,6 +13,7 @@ import com.sbl.foags.adapter.PagerViewFragmentAdapter
 import com.sbl.foags.base.BaseFragment
 import com.flyco.tablayout.SlidingScaleTabLayout
 import com.sbl.foags.activity.cube.comment.AllCommentActivity
+import com.sbl.foags.activity.cube.photo.CubePhotoDetailActivity
 
 
 class SelectedFragment : BaseFragment(), View.OnClickListener {
@@ -80,11 +81,11 @@ class SelectedFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             searchView -> {
-
+                openActivity(CubePhotoDetailActivity::class.java)
             }
 
             messageView -> {
-                openActivity(AllCommentActivity::class.java)
+
             }
         }
     }
