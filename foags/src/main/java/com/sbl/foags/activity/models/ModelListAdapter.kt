@@ -8,7 +8,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.models.data.ModelListType
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
+import com.sbl.foags.user.UserFollowStatus
 import com.sbl.foags.view.UserLevelView
 import com.sbl.foags.view.recycler.adapter.BaseRecycleViewAdapter
 import java.util.*
@@ -63,7 +64,7 @@ class ModelListAdapter(val context: Context, private val type: ModelListType, li
         }
 
 
-        if(item.viewerIsFollowThis){
+        if(item.followStatus == UserFollowStatus.Already || item.followStatus == UserFollowStatus.Mutual){
             followView.setBackgroundResource(R.drawable.bg_user_follow)
         }else{
             followView.setBackgroundResource(R.drawable.bg_user_not_follow)

@@ -8,7 +8,7 @@ import com.sbl.foags.activity.rank.data.RankBean
 import com.sbl.foags.activity.rank.data.RankCycle
 import com.sbl.foags.activity.rank.data.RankType
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
 import com.sbl.foags.view.recycler.other.HeaderAndFooterRecyclerViewAdapter
 
@@ -62,8 +62,10 @@ class TypeCycleRankListFragment : BaseFragment(), OnRefreshListener {
 
 
     fun setData(){
-
-        val bean = RankBean("1", User("12", "http://b-ssl.duitang.com/uploads/item/201704/10/20170410073535_HXVfJ.thumb.700_0.jpeg", "阿斯顿说", 11, 20))
+        val user = User("12", "http://b-ssl.duitang.com/uploads/item/201704/10/20170410073535_HXVfJ.thumb.700_0.jpeg", "阿斯顿说")
+        user.level = 14
+        user.memberLevel = 12
+        val bean = RankBean("1", user)
         bean.buyCount = 123
         bean.liveTime = 42
         bean.lollipopCount = 900

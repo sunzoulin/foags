@@ -32,7 +32,6 @@ class ModelListActivity : BaseActivity(), OnFragmentLoadListener {
     private lateinit var backView: ImageView
     private lateinit var tabLayout: SlidingScaleTabLayout
     private lateinit var searchView: ImageView
-
     private lateinit var viewPager: ViewPager
 
 

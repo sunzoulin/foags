@@ -6,7 +6,7 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.BaseCubeContentBean
@@ -31,9 +31,13 @@ class SelectedFollowFragment : BaseFragment(), OnRefreshListener {
 
         val cubes = arrayListOf<BaseCubeContentBean>()
 
+        val user = User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三")
+        user.level = 33
+        user.memberLevel = 44
+
         val cube1 = CubeWorkBean("111",
             CubeType.WORK,
-            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0),
+            user,
             true,
             99.0,
             23,
@@ -52,7 +56,7 @@ class SelectedFollowFragment : BaseFragment(), OnRefreshListener {
 
         val cube2 = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             false,
             190.0,
             9,

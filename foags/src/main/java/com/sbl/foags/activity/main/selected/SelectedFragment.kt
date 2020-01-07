@@ -1,6 +1,7 @@
 package com.sbl.foags.activity.main.selected
 
 import android.view.View
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.sbl.foags.R
@@ -11,12 +12,15 @@ import com.sbl.foags.adapter.OnFragmentLoadListener
 import com.sbl.foags.adapter.PagerViewFragmentAdapter
 import com.sbl.foags.base.BaseFragment
 import com.flyco.tablayout.SlidingScaleTabLayout
+import com.sbl.foags.activity.cube.comment.AllCommentActivity
 
 
 class SelectedFragment : BaseFragment(), View.OnClickListener {
 
 
     private lateinit var tabsView: SlidingScaleTabLayout
+    private lateinit var searchView: ImageView
+    private lateinit var messageView: ImageView
     private lateinit var viewPager: ViewPager
 
     private var fragments: ArrayList<BaseFragment> = arrayListOf()
@@ -27,7 +31,12 @@ class SelectedFragment : BaseFragment(), View.OnClickListener {
     override fun initView() {
 
         tabsView = getViewById(R.id.tabLayout)
+        searchView = getViewById(R.id.searchView)
+        messageView = getViewById(R.id.messageView)
         viewPager = getViewById(R.id.viewPager)
+
+        searchView.setOnClickListener(this)
+        messageView.setOnClickListener(this)
 
         fragments.clear()
         fragments.add(SelectedFollowFragment())
@@ -69,5 +78,14 @@ class SelectedFragment : BaseFragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        when(v){
+            searchView -> {
+
+            }
+
+            messageView -> {
+                openActivity(AllCommentActivity::class.java)
+            }
+        }
     }
 }

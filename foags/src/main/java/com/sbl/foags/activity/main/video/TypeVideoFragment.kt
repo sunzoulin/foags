@@ -6,7 +6,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.sbl.foags.R
 import com.sbl.foags.activity.main.video.data.VideoType
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.BaseCubeContentBean
@@ -42,9 +42,13 @@ class TypeVideoFragment: BaseFragment(), OnRefreshListener {
 
         val cubes = arrayListOf<BaseCubeContentBean>()
 
+        val user = User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四")
+        user.level = 21
+        user.memberLevel = 10
+
         val cube = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             true,
             190.0,
             9,
@@ -60,7 +64,7 @@ class TypeVideoFragment: BaseFragment(), OnRefreshListener {
 
         val cube2 = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             true,
             190.0,
             9,

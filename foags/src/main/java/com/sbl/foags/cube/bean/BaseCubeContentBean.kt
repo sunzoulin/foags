@@ -1,6 +1,6 @@
 package com.sbl.foags.cube.bean
 
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeType
 
 

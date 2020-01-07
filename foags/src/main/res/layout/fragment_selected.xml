@@ -32,6 +32,7 @@
             app:tl_textUnSelectSize="15sp" />
 
         <ImageView
+            android:id="@+id/searchView"
             android:paddingLeft="15dp"
             android:paddingRight="7.5dp"
             android:src="@drawable/ic_home_search"
@@ -39,6 +40,7 @@
             android:layout_height="match_parent"/>
 
         <ImageView
+            android:id="@+id/messageView"
             android:paddingLeft="7.5dp"
             android:paddingRight="15dp"
             android:src="@drawable/ic_home_message"

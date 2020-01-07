@@ -13,8 +13,8 @@ import com.sbl.foags.R
 import com.sbl.foags.activity.models.ModelListActivity
 import com.sbl.foags.activity.rank.RankListActivity
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.Banner
-import com.sbl.foags.bean.User
+import com.sbl.foags.activity.main.selected.recommend.data.BannerBean
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.*
@@ -29,7 +29,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
     private lateinit var swipeToLoadLayout: SwipeToLoadLayout
     private lateinit var bannerLayout: LinearLayout
-    private lateinit var bannerView: MyConvenientBanner<Banner>
+    private lateinit var bannerView: MyConvenientBanner<BannerBean>
     private lateinit var bannerIndicatorView: LinearLayout
     private lateinit var shareLayout: MyAspectRatioLinearLayout
     private lateinit var rankLayout: MyAspectRatioLinearLayout
@@ -45,19 +45,37 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         bindViews()
 
-        val banner = arrayListOf<Banner>()
-        banner.add(Banner("", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg"))
-        banner.add(Banner("", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg"))
-        banner.add(Banner("", "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg"))
+        val banner = arrayListOf<BannerBean>()
+        banner.add(
+            BannerBean(
+                "",
+                "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg"
+            )
+        )
+        banner.add(
+            BannerBean(
+                "",
+                "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg"
+            )
+        )
+        banner.add(
+            BannerBean(
+                "",
+                "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg"
+            )
+        )
 
         setBanner(banner)
 
+        val user = User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三")
+        user.memberLevel = 34
+        user.level = 12
 
         val models = arrayListOf<User>()
-        models.add(User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0))
-        models.add(User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0))
-        models.add(User("3", "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg", "王五", 5, 0))
-        models.add(User(UIUtils.getString(R.string.more_models), "", "", 1, 0))
+        models.add(user)
+        models.add(user)
+        models.add(user)
+        models.add(User(UIUtils.getString(R.string.more_models), "", ""))
 
         setModels(models)
 
@@ -67,7 +85,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         val cube1 = CubeWorkBean("111",
             CubeType.WORK,
-            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0),
+            user,
             false,
             99.0,
             23,
@@ -86,7 +104,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         val cube2 = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             true,
             190.0,
             9,
@@ -166,7 +184,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
     }
 
 
-    fun setBanner(banner: ArrayList<Banner>) {
+    fun setBanner(banner: ArrayList<BannerBean>) {
         if (banner.isEmpty()) {
             bannerLayout.visibility = View.GONE
             return
@@ -175,7 +193,7 @@ class SelectedRecommendFragment : BaseFragment(), View.OnClickListener,
 
         bannerView.setPages(object: CBViewHolderCreator {
 
-            override fun createHolder(itemView: View?): Holder<Banner> {
+            override fun createHolder(itemView: View?): Holder<BannerBean> {
                 return SelectedRecommendBannerHolderView(
                     requireContext(),
                     itemView

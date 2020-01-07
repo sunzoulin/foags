@@ -7,7 +7,7 @@ import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.sbl.foags.R
 import com.sbl.foags.activity.main.photo.data.AlbumType
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.BaseCubeContentBean
@@ -48,9 +48,13 @@ class PrivatePhotoTypeFragment: BaseFragment(), OnRefreshListener {
 
         val cubes = arrayListOf<BaseCubeContentBean>()
 
+        val user11 = User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四")
+        user11.level = 11
+        user11.memberLevel = 22
+
         val cube = CubeAlbumBean("222",
             CubeType.ALBUM,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user11,
             true,
             190.0,
             9,
@@ -64,9 +68,12 @@ class PrivatePhotoTypeFragment: BaseFragment(), OnRefreshListener {
         cubes.add(cube)
 
 
+
+
+
         val cube2 = CubeAlbumBean("222",
             CubeType.ALBUM,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user11,
             true,
             190.0,
             9,
@@ -79,11 +86,9 @@ class PrivatePhotoTypeFragment: BaseFragment(), OnRefreshListener {
 
         cubes.add(cube2)
 
-
-
         val cube3 = CubeAlbumBean("222",
             CubeType.ALBUM,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user11,
             true,
             190.0,
             9,
@@ -100,7 +105,7 @@ class PrivatePhotoTypeFragment: BaseFragment(), OnRefreshListener {
 
         val cube4 = CubeAlbumBean("222",
             CubeType.ALBUM,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user11,
             true,
             190.0,
             9,
@@ -118,7 +123,7 @@ class PrivatePhotoTypeFragment: BaseFragment(), OnRefreshListener {
 
         val cube5 = CubeAlbumBean("222",
             CubeType.ALBUM,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user11,
             true,
             190.0,
             9,

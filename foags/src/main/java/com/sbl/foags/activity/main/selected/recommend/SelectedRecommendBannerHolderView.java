@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bumptech.glide.Glide;
 import com.sbl.foags.R;
-import com.sbl.foags.bean.Banner;
+import com.sbl.foags.activity.main.selected.recommend.data.BannerBean;
 import com.sbl.foags.utils.GlideRoundTransform;
 import com.sbl.foags.utils.UIUtils;
 
-public class SelectedRecommendBannerHolderView extends Holder<Banner> {
+public class SelectedRecommendBannerHolderView extends Holder<BannerBean> {
 
     private Context context;
     private ImageView imageView;
@@ -27,7 +27,7 @@ public class SelectedRecommendBannerHolderView extends Holder<Banner> {
     }
 
     @Override
-    public void updateUI(Banner data) {
+    public void updateUI(BannerBean data) {
         Glide.with(context).load(data.getUrl()).transform(new GlideRoundTransform(UIUtils.dip2px(6f))).into(imageView);
     }
 }

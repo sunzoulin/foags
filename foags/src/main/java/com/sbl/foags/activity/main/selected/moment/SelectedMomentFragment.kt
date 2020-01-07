@@ -8,7 +8,7 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseFragment
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.cube.CubeListAdapter
 import com.sbl.foags.cube.CubeType
 import com.sbl.foags.cube.bean.*
@@ -43,10 +43,13 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cubes = arrayListOf<BaseCubeContentBean>()
 
+        val user = User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三")
+        user.level = 44
+        user.memberLevel = 9
 
         val cube1 = CubeMomentBean("111",
             CubeType.MOMENT,
-            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0),
+            user,
             true,
             99.0,
             23,
@@ -61,7 +64,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cube111 = CubeWorkBean("111",
             CubeType.WORK,
-            User("1", "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg", "张三", 12, 0),
+            user,
             false,
             99.0,
             23,
@@ -75,7 +78,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
         cube111.photoList = photos222
         cube111.totalPhotoCount = 10
         cube111.contentType = WorkContentType.PHOTO
-        cube111.photographer = User("32", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "摄影师1", 30, 0)
+        cube111.photographer = user
         cube111.shotTime = "2019.11.11"
 
         cube1.forwardWork = cube111
@@ -86,7 +89,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cube2 = CubeMomentBean("222",
             CubeType.MOMENT,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             true,
             190.0,
             9,
@@ -97,7 +100,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cube2222 = CubeWorkBean("222",
             CubeType.WORK,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             false,
             190.0,
             9,
@@ -107,7 +110,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
         cube2222.video = "http://g.hiphotos.baidu.com/zhidao/pic/item/ac4bd11373f08202b4a9a53a4bfbfbedab641bff.jpg"
         cube2222.duration = 1000
         cube2222.contentType = WorkContentType.VIDEO
-        cube2222.photographer = User("12", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "摄影师2", 30, 0)
+        cube2222.photographer = user
         cube2222.shotTime = "2019.11.12"
 
         cube2.forwardWork = cube2222
@@ -116,7 +119,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cube3 = CubeMomentBean("333",
             CubeType.MOMENT,
-            User("3", "http://a4.att.hudong.com/50/32/01300000836651126875327576537.jpg", "王五", 5, 0),
+            user,
             false,
             190.0,
             9,
@@ -131,7 +134,7 @@ class SelectedMomentFragment : BaseFragment(), OnRefreshListener, View.OnClickLi
 
         val cube4 = CubeMomentBean("444",
             CubeType.MOMENT,
-            User("2", "http://bbs-fd.zol-img.com.cn/t_s800x5000/g4/M04/09/00/Cg-4WVE4lvyIHszpAABsHDCstNAAAFjeQAVpiMAAGw0289.jpg", "李四", 30, 0),
+            user,
             false,
             190.0,
             9,

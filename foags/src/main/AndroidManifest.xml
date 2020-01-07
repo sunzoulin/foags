@@ -90,6 +90,11 @@
         <activity android:name=".activity.setting.feedback.FeedbackActivity"/>
 
         <activity android:name=".activity.moenybag.MyMoneyBagActivity"/>
+
+        <activity android:name=".activity.addressbook.AddressBookActivity"/>
+
+        <activity android:name=".activity.cube.comment.AllCommentActivity"/>
+
     </application>
 
 </manifest>

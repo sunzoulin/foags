@@ -9,6 +9,7 @@ import com.sbl.foags.activity.login.LoginActivity
 import com.sbl.foags.activity.setting.about.AboutUsActivity
 import com.sbl.foags.activity.setting.feedback.FeedbackActivity
 import com.sbl.foags.base.BaseActivity
+import com.sbl.foags.common.cache.RxACache
 import com.sbl.foags.manager.ActivityManager
 import com.sbl.foags.utils.SystemUtil
 import com.sbl.foags.utils.UIUtils
@@ -81,6 +82,7 @@ class SettingActivity: BaseActivity(), View.OnClickListener {
             }
 
             logoutView -> {
+                RxACache.getInstance().clearUserInfo()
                 openActivity(LoginActivity::class.java)
                 ActivityManager.getInstance().exit()
             }

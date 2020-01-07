@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseActivity
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
 import com.sbl.foags.view.recycler.other.HeaderAndFooterRecyclerViewAdapter
@@ -68,7 +68,9 @@ class SearchUserActivity: BaseActivity(), TextWatcher {
         if(s != null && s.isNotEmpty()){
             modelList.clear()
 
-            val bean = User("12", "http://b-ssl.duitang.com/uploads/item/201704/10/20170410073535_HXVfJ.thumb.700_0.jpeg", "阿斯${s}顿说${s}", 11, 20)
+            val bean = User("12", "http://b-ssl.duitang.com/uploads/item/201704/10/20170410073535_HXVfJ.thumb.700_0.jpeg", "阿斯${s}顿说${s}")
+            bean.level = 10
+            bean.memberLevel = 1
             bean.tags = arrayListOf("平面模特", "网红大V")
 
             modelList.add(bean)

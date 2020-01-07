@@ -1,6 +1,6 @@
 package com.sbl.foags.activity.rank.data
 
-import com.sbl.foags.bean.User
+import com.sbl.foags.user.User
 
 class RankBean(val id: String,
                val user: User){

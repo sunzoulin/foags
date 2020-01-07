@@ -5,6 +5,8 @@ import android.widget.*
 import com.sbl.foags.R
 import com.sbl.foags.activity.main.MainActivity
 import com.sbl.foags.base.BaseActivity
+import com.sbl.foags.common.cache.RxACache
+import com.sbl.foags.user.User
 import com.sbl.foags.utils.statusbar.StatusBarUtil
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -98,6 +100,14 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 if(inputIdentifyingCodeView.text.isEmpty()){
                     Toast.makeText(this, getString(R.string.please_input_phone_number), Toast.LENGTH_SHORT).show()
                     return
+                }
+
+
+                var user = RxACache.getInstance().user
+                if (user == null) {
+                    user = User("100", "http://b-ssl.duitang.com/uploads/item/201607/26/20160726185736_yPmrE.thumb.224_0.jpeg", "自己")
+                    RxACache.getInstance().user = user
+                    RxACache.getInstance().saveUserInfo()
                 }
 
                 MainActivity.open(this)
