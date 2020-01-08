@@ -1,9 +1,6 @@
 package com.sbl.foags.activity.cube.comment
 
-import android.view.KeyEvent
 import android.view.View
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,12 +8,12 @@ import com.aspsine.swipetoloadlayout.OnRefreshListener
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
 import com.sbl.foags.R
 import com.sbl.foags.activity.cube.comment.data.CommentBean
+import com.sbl.foags.activity.cube.comment.dialog.EditCommentSendDialog
+import com.sbl.foags.activity.cube.comment.dialog.EditCommentSendListener
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.common.cache.RxACache
 import com.sbl.foags.user.User
 import com.sbl.foags.user.UserFollowStatus
-import com.sbl.foags.utils.KeyBoardUtil
-import com.sbl.foags.utils.ScreenUtils
 import com.sbl.foags.utils.UIUtils
 import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
@@ -24,12 +21,12 @@ import com.sbl.foags.view.recycler.other.HeaderAndFooterRecyclerViewAdapter
 
 
 class AllCommentActivity: BaseActivity(), View.OnClickListener, OnRefreshListener,
-    TextView.OnEditorActionListener {
+    EditCommentSendListener {
 
 
     private lateinit var backView: ImageView
     private lateinit var titleView: TextView
-    private lateinit var commentEditView: EditText
+    private lateinit var commentView: TextView
     private lateinit var swipeToLoadLayout: SwipeToLoadLayout
     private lateinit var commentsRecyclerView: FloatHeaderAndFooterRecyclerView
 
@@ -53,12 +50,12 @@ class AllCommentActivity: BaseActivity(), View.OnClickListener, OnRefreshListene
     private fun bindViews(){
         backView = findViewById(R.id.backView)
         titleView = findViewById(R.id.titleView)
-        commentEditView = findViewById(R.id.commentEditView)
+        commentView = findViewById(R.id.commentView)
         swipeToLoadLayout = findViewById(R.id.swipeToLoadLayout)
         commentsRecyclerView = findViewById(R.id.commentsRecyclerView)
 
         backView.setOnClickListener(this)
-        commentEditView.setOnEditorActionListener(this)
+        commentView.setOnClickListener(this)
         swipeToLoadLayout.isLoadMoreEnabled = false
         swipeToLoadLayout.setOnRefreshListener(this)
 
@@ -79,6 +76,10 @@ class AllCommentActivity: BaseActivity(), View.OnClickListener, OnRefreshListene
         when(v){
             backView -> {
                 finish()
+            }
+
+            commentView -> {
+                EditCommentSendDialog(this, this).show()
             }
         }
     }
@@ -117,18 +118,9 @@ class AllCommentActivity: BaseActivity(), View.OnClickListener, OnRefreshListene
     }
 
 
-    override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
-        if(actionId == EditorInfo.IME_ACTION_SEND && commentEditView.text.isNotEmpty()){
-            val commentBean = CommentBean("999", RxACache.getInstance().user, "刚刚", commentEditView.text.toString())
-            comments.add(0, commentBean)
-            baseAdapter.notifyDataSetChanged()
-
-            commentEditView.text.clear()
-
-            KeyBoardUtil.closeKeybord(commentEditView, this)
-            commentEditView.clearFocus()
-            return true
-        }
-        return false
+    override fun onSendComment(content: String) {
+        val commentBean = CommentBean("999", RxACache.getInstance().user, "刚刚", content)
+        comments.add(0, commentBean)
+        baseAdapter.notifyDataSetChanged()
     }
 }

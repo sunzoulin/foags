@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="125dp"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/commentEditView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:focusable="true"
+        android:gravity="top"
+        android:hint="@string/let_me_say_two_words"
+        android:inputType="textMultiLine"
+        android:imeOptions="flagNoFullscreen|flagNoExtractUi"
+        android:maxLength="300"
+        android:textColor="@color/color_333333"
+        android:textColorHint="@color/color_9EA7B9"
+        android:textSize="14sp" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_gravity="bottom|left"
+            android:id="@+id/totalCountView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/300"
+            android:textColor="@color/color_BECCD9"
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:background="@drawable/bg_edit_comment_send_btn"
+            android:layout_gravity="bottom|right"
+            android:id="@+id/sendView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="4dp"
+            android:text="发送"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+    </FrameLayout>
+
+</LinearLayout>

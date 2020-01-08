@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.cube.comment.AllCommentActivity
+import com.sbl.foags.activity.cube.comment.dialog.EditCommentSendDialog
+import com.sbl.foags.activity.cube.comment.dialog.EditCommentSendListener
 import com.sbl.foags.base.BaseActivity
 import com.sbl.foags.user.User
 import com.sbl.foags.user.UserFollowStatus
@@ -22,7 +24,8 @@ import java.util.ArrayList
 class CubePhotoDetailActivity: BaseActivity(), View.OnClickListener,
     ViewPager.OnPageChangeListener,
     CubePhotoDetailViewPager.onSideListener,
-    CubePhotoDetailAdapter.ImageReviewAdapterListener {
+    CubePhotoDetailAdapter.ImageReviewAdapterListener,
+    EditCommentSendListener {
 
     private lateinit var photoViewPager: CubePhotoDetailViewPager
 
@@ -81,6 +84,7 @@ class CubePhotoDetailActivity: BaseActivity(), View.OnClickListener,
 
         backView.setOnClickListener(this)
         commentView.setOnClickListener(this)
+        commentCountView.setOnClickListener(this)
 
         photoViewPager.setOnSideListener(this)
         photoViewPager.addOnPageChangeListener(this)
@@ -110,6 +114,10 @@ class CubePhotoDetailActivity: BaseActivity(), View.OnClickListener,
             }
 
             commentView -> {
+                EditCommentSendDialog(this, this).show()
+            }
+
+            commentCountView -> {
                 openActivity(AllCommentActivity::class.java)
             }
         }
@@ -206,5 +214,9 @@ class CubePhotoDetailActivity: BaseActivity(), View.OnClickListener,
         }else{
             followView.setImageResource(R.drawable.ic_image_follow)
         }
+    }
+
+    override fun onSendComment(content: String) {
+
     }
 }
