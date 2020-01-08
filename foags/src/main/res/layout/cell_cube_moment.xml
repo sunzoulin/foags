@@ -71,7 +71,7 @@
 
         <ImageView
             android:id="@+id/moreBtnView"
-            android:src="@drawable/ic_dongtai_more"
+            android:src="@drawable/ic_more_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

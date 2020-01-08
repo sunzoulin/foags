@@ -31,7 +31,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="CubePhotoDetailActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="CubeDetailActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

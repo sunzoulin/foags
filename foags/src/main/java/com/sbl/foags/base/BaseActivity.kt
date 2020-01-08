@@ -11,7 +11,6 @@ import com.sbl.foags.R
 import com.sbl.foags.manager.ActivityManager
 import com.sbl.foags.manager.IndicatorManager
 import com.sbl.foags.rxbus.RxManager
-import com.sbl.foags.utils.statusbar.StatusBarUtil
 import com.sbl.foags.view.LoadingLayout
 
 abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, LoadingLayout.EmptyRefreshListener, LoadingLayout.ErrorRefreshListener {
@@ -26,6 +25,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
     protected var showBackTip: Boolean = false
 
 
+    protected lateinit var contentGroupManager: AndroidContentGroupManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +40,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseContractNew.BaseView, Loa
         mLoadingLayout.addErrorRefreshListener(this)
 
         mLoadingLayout.addView(layoutInflater.inflate(initLayout(), mLoadingLayout, false))
+
+
+        contentGroupManager = AndroidContentGroupManager(this)
 
         initView()
 

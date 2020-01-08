@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+            android:id="@+id/swipeToLoadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:swipe_style="classic">
+
+            <include
+                android:id="@id/swipe_refresh_header"
+                layout="@layout/layout_refresh_header" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.sbl.foags.view.MyAspectRatioFrameLayout
+                    app:myFrameAspectRatio="1.78"
+                    android:background="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/playerContentLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/include_common_white_title_layout"/>
+
+                </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+
+                    <View
+                        android:background="@drawable/bg_main_tab_top"
+                        android:layout_gravity="bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+
+
+                </FrameLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollView"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:background="@color/color_FF8773"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"/>
+                        <View
+                            android:background="@color/color_3A90FF"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"/>
+                        <View
+                            android:background="@color/color_FD596A"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"/>
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+        </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+        <View
+            android:background="@drawable/bg_main_tab_top"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:id="@+id/footerLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/commentView"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_cube_video_detail_edittext"
+            android:paddingLeft="14dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:paddingRight="14dp"
+            android:text="@string/please_comment"
+            android:textColor="@color/color_757575"
+            android:textSize="12sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/commentCountView"
+            android:text="0"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableLeft="@drawable/ic_dongtai_pinglun"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/color_BECCD9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/likeCountView"
+            android:text="0"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableLeft="@drawable/ic_dongtai_shoucang"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"
+            android:textColor="@color/color_BECCD9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/shareView"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_dongtai_share"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

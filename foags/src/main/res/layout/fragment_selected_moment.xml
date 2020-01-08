@@ -62,7 +62,7 @@
                         android:id="@+id/rightMoreView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_right_more"
+                        android:src="@drawable/ic_right_arrow_gray"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"/>
 

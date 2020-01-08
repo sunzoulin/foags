@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <ImageView
+        android:id="@+id/switchStatusView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_play" />
+
+
+    <LinearLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_exo_player_media_controller_footer"
+        android:gravity="center_vertical"
+        android:clipChildren="false"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:text="00:00"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/currentTimeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+        <SeekBar
+            android:id="@+id/seekBarView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:layout_margin="0dp"
+            android:maxHeight="2dp"
+            android:minHeight="2dp"
+            android:progressDrawable="@drawable/seek_bar_exo_player_media_controller"
+            android:thumb="@drawable/thumb_exo_player_media_controller" />
+
+        <TextView
+            android:text="00:00"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/totalTimeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/switchScreenView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="12dp"
+            android:src="@drawable/ic_quanping" />
+
+    </LinearLayout>
+
+</RelativeLayout>

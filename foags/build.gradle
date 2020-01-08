@@ -52,7 +52,6 @@ dependencies {
     implementation project(':PullToRefresh')
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
     implementation 'jp.wasabeef:glide-transformations:4.1.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.0.3'
@@ -75,4 +74,12 @@ dependencies {
 
 
     api 'com.github.chrisbanes:PhotoView:2.1.4'
+
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.1'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.10.1'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.10.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.1'
+    implementation 'com.danikula:videocache:2.7.1'
+
 }

@@ -96,7 +96,11 @@
         <activity android:name=".activity.cube.comment.AllCommentActivity"/>
 
         <activity android:name=".activity.cube.photo.CubePhotoDetailActivity"
-            android:theme="@style/CubePhotoDetailActivityTheme"/>
+            android:theme="@style/CubeDetailActivityTheme"/>
+
+        <activity android:name=".activity.cube.video.CubeVideoDetailActivity"
+            android:theme="@style/CubeDetailActivityTheme"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
 
     </application>
 

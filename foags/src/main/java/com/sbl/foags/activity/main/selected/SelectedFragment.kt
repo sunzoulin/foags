@@ -14,6 +14,7 @@ import com.sbl.foags.base.BaseFragment
 import com.flyco.tablayout.SlidingScaleTabLayout
 import com.sbl.foags.activity.cube.comment.AllCommentActivity
 import com.sbl.foags.activity.cube.photo.CubePhotoDetailActivity
+import com.sbl.foags.activity.cube.video.CubeVideoDetailActivity
 
 
 class SelectedFragment : BaseFragment(), View.OnClickListener {
@@ -85,7 +86,7 @@ class SelectedFragment : BaseFragment(), View.OnClickListener {
             }
 
             messageView -> {
-
+                openActivity(CubeVideoDetailActivity::class.java)
             }
         }
     }
