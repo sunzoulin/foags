@@ -26,7 +26,7 @@ import java.util.ArrayList
 
 class SelectWorkPhotoActivity: BaseActivity(),
     View.OnClickListener,
-    BaseDragGridViewListener<String>,
+    BaseDragGridViewListener<File>,
     AdapterView.OnItemClickListener {
 
 
@@ -48,7 +48,7 @@ class SelectWorkPhotoActivity: BaseActivity(),
     private lateinit var uploadView: TextView
 
 
-    private var resultWorkPhotoList: ArrayList<String> = arrayListOf()
+    private var resultWorkPhotoList: ArrayList<File> = arrayListOf()
 
     private lateinit var adapter: SelectWorkPhotoAdapter
 
@@ -111,7 +111,7 @@ class SelectWorkPhotoActivity: BaseActivity(),
         getWorkPhoto()
     }
 
-    override fun moveChange(arrayList: ArrayList<String>) {
+    override fun moveChange(arrayList: ArrayList<File>) {
         resultWorkPhotoList.clear()
         resultWorkPhotoList.addAll(arrayList)
     }
@@ -173,7 +173,7 @@ class SelectWorkPhotoActivity: BaseActivity(),
                     for (p in path) {
                         val imageFile = File(p)
                         if (imageFile.exists()) {
-                            resultWorkPhotoList.add(imageFile.absolutePath)
+                            resultWorkPhotoList.add(imageFile)
                         }
                     }
                     adapter.setInitList(resultWorkPhotoList)

@@ -1,23 +1,22 @@
 package com.sbl.foags.activity.authenticate.photographer.work;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
-
-import com.bumptech.glide.Glide;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.sbl.foags.R;
 import com.sbl.foags.adapter.BaseDragGridViewAdapter;
 import com.sbl.foags.adapter.BaseDragGridViewHolder;
-import com.sbl.foags.utils.GlideRoundTransform;
-import com.sbl.foags.utils.UIUtils;
+import com.sbl.foags.view.RecycleSimpleDraweeView;
+
+import java.io.File;
 
 
-public class SelectWorkPhotoAdapter extends BaseDragGridViewAdapter<String> {
+public class SelectWorkPhotoAdapter extends BaseDragGridViewAdapter<File> {
 
 
     public SelectWorkPhotoAdapter(Context context, int maxCount) {
@@ -43,7 +42,7 @@ public class SelectWorkPhotoAdapter extends BaseDragGridViewAdapter<String> {
         FrameLayout addPhotoLayout = (FrameLayout) holder.getView(R.id.addPhotoLayout);
         FrameLayout photoLayout = (FrameLayout) holder.getView(R.id.photoLayout);
 
-        ImageView photoView = (ImageView) holder.getView(R.id.photoView);
+        RecycleSimpleDraweeView photoView = (RecycleSimpleDraweeView) holder.getView(R.id.photoView);
         RoundedImageView deleteView = (RoundedImageView) holder.getView(R.id.deleteView);
 
         addPhotoLayout.setOnClickListener(v -> {
@@ -77,6 +76,6 @@ public class SelectWorkPhotoAdapter extends BaseDragGridViewAdapter<String> {
             deleteView.setVisibility(View.VISIBLE);
         }
 
-        Glide.with(context).load(strList.get(position)).transform(new GlideRoundTransform(UIUtils.dip2px(6f))).into(photoView);
+        photoView.setImageUrl(Uri.fromFile(strList.get(position)).toString());
     }
 }
