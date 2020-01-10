@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.joooonho.SelectableRoundedImageView
+import com.makeramen.roundedimageview.RoundedImageView
 import com.sbl.foags.R
 import com.sbl.foags.cube.bean.CubeAlbumBean
 import com.sbl.foags.cube.factory.cell.BaseCell
@@ -23,7 +23,7 @@ class CubeAlbumSmallCell(val context: Context,
     }
 
 
-    private lateinit var albumCoverView: SelectableRoundedImageView
+    private lateinit var albumCoverView: RoundedImageView
     private lateinit var headPicView: ImageView
     private lateinit var nickNameView: TextView
     private lateinit var countView: TextView

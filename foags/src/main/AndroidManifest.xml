@@ -102,6 +102,16 @@
             android:theme="@style/CubeDetailActivityTheme"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
 
+        <activity android:name=".activity.authenticate.center.AuthenticateCenterActivity"/>
+
+        <activity android:name=".activity.authenticate.photographer.AuthenticatePhotographerActivity"/>
+
+        <activity android:name=".activity.authenticate.model.AuthenticateModelActivity"/>
+
+        <activity android:name=".activity.authenticate.common.identity.SelectIdentityInfoActivity"/>
+
+        <activity android:name=".activity.authenticate.photographer.work.SelectWorkPhotoActivity"/>
+
     </application>
 
 </manifest>

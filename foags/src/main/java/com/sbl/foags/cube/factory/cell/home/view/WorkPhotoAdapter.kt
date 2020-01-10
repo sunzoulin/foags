@@ -1,4 +1,4 @@
-package com.sbl.foags.cube.factory.cell.home.view;
+package com.sbl.foags.cube.factory.cell.home.view
 
 import android.content.Context
 import android.view.View

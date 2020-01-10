@@ -1,5 +1,6 @@
 package com.sbl.foags.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -97,6 +98,20 @@ object UIUtils {
     @JvmStatic
     fun getString(id: Int, vararg arg: Any): String {
         return MyApplication.instance.resources.getString(id, *arg)
+    }
+
+    /**
+     * 获取字符串数组
+     */
+    @SuppressLint("ResourceType")
+    @JvmStatic
+    fun getStringArray(@StringRes id: Int): ArrayList<String> {
+        val a = MyApplication.instance.resources.getStringArray(id)
+        val b = arrayListOf<String>()
+        for(c in a.indices){
+            b.add(a[c])
+        }
+        return b
     }
 
     /**

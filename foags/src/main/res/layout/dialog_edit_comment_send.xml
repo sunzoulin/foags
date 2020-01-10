@@ -52,7 +52,7 @@
             android:paddingTop="4dp"
             android:paddingRight="16dp"
             android:paddingBottom="4dp"
-            android:text="发送"
+            android:text="@string/send"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

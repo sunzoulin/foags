@@ -24,6 +24,9 @@ import androidx.core.content.FileProvider;
 
 
 import com.sbl.foags.MyApplication;
+import com.sbl.foags.R;
+import com.sbl.foags.common.dialog.CommonConfirmDialog;
+import com.sbl.foags.common.dialog.CommonConfirmDialogListener;
 import com.sbl.foags.manager.ActivityManager;
 
 import java.io.File;
@@ -332,4 +335,12 @@ public class SystemUtil {
         return packInfo;
     }
 
+    public static void gotoOpenPermission(final Context context) {
+        CommonConfirmDialog dialog = new CommonConfirmDialog(context,
+                UIUtils.getString(R.string.sure),
+                UIUtils.getString(R.string.cancel),
+                true,
+                UIUtils.getString(R.string.permission_not_open_tip));
+        dialog.show();
+    }
 }

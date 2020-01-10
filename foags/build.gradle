@@ -49,14 +49,14 @@ dependencies {
         transitive = true
     }
 
+    implementation project(':TimePickerDialog')
+
     implementation project(':PullToRefresh')
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
     implementation 'jp.wasabeef:glide-transformations:4.1.0'
     implementation 'jp.co.cyberagent.android:gpuimage:2.0.3'
-
-    implementation 'com.joooonho:selectableroundedimageview:1.0.1'
 
     implementation 'com.bigkoo:convenientbanner:2.1.5'
 
@@ -82,4 +82,8 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.10.1'
     implementation 'com.danikula:videocache:2.7.1'
 
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.zhihu.android:matisse:0.5.2-beta2'
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 }

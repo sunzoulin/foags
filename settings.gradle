@@ -1,2 +1,2 @@
-include ':foags', ':PullToRefresh'
+include ':foags', ':PullToRefresh', ':TimePickerDialog'
 rootProject.name='foags'

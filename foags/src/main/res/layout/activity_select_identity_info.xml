@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_common_title_layout"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:textColor="@color/color_333333"
+                    android:text="@string/real_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/realNameEditView"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:gravity="left|center_vertical"
+                    android:inputType="text"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_9EA7B9"
+                    android:background="@null"
+                    android:hint="@string/please_input_you_real_name"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_E4E4E4"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:textColor="@color/color_333333"
+                    android:text="@string/identity_id_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/identityIDNumberEditView"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:gravity="left|center_vertical"
+                    android:inputType="text"
+                    android:textColor="@color/color_333333"
+                    android:textColorHint="@color/color_9EA7B9"
+                    android:background="@null"
+                    android:hint="@string/please_input_you_identity_id_number"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_E4E4E4"/>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:background="@drawable/ic_home_title_tip"
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"/>
+
+
+                <TextView
+                    android:layout_marginLeft="13dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/color_757575"
+                    android:text="@string/identity_positive_and_negative_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/positivePhotoLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.sbl.foags.view.MyAspectRatioFrameLayout
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        app:myFrameAspectRatio="1.45">
+
+                        <FrameLayout
+                            android:id="@+id/positivePhotoNormalLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                app:riv_corner_radius="6dp"
+                                android:src="@drawable/ic_renzheng_sfz"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+                            <FrameLayout
+                                android:background="@drawable/bg_select_identity_info_add_photo_fog"
+                                android:layout_gravity="center"
+                                android:layout_width="39dp"
+                                android:layout_height="39dp">
+
+                                <com.makeramen.roundedimageview.RoundedImageView
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_renzheng_sctp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"/>
+
+                            </FrameLayout>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/positivePhotoShowLayout"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/positivePhotoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"/>
+
+                            <View
+                                android:background="@drawable/bg_select_identity_info_photo_fog"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_renzheng_zhang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </FrameLayout>
+
+                    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/color_9EA7B9"
+                        android:text="@string/identity_positive_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/negativePhotoLayout"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.sbl.foags.view.MyAspectRatioFrameLayout
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        app:myFrameAspectRatio="1.45">
+
+                        <FrameLayout
+                            android:id="@+id/negativePhotoNormalLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                app:riv_corner_radius="6dp"
+                                android:src="@drawable/ic_renzheng_sfzf"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+                            <FrameLayout
+                                android:background="@drawable/bg_select_identity_info_add_photo_fog"
+                                android:layout_gravity="center"
+                                android:layout_width="39dp"
+                                android:layout_height="39dp">
+
+                                <com.makeramen.roundedimageview.RoundedImageView
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_renzheng_sctp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"/>
+
+                            </FrameLayout>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/negativePhotoShowLayout"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/negativePhotoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"/>
+
+                            <View
+                                android:background="@drawable/bg_select_identity_info_photo_fog"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_renzheng_zhang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </FrameLayout>
+
+                    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:gravity="center"
+                        android:textSize="13sp"
+                        android:textColor="@color/color_9EA7B9"
+                        android:text="@string/identity_negative_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_E4E4E4"/>
+
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:background="@drawable/ic_home_title_tip"
+                    android:layout_width="4dp"
+                    android:layout_height="16dp"/>
+
+
+                <TextView
+                    android:layout_marginLeft="13dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/color_757575"
+                    android:text="@string/hold_identity_negative_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/holdPhotoLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.sbl.foags.view.MyAspectRatioFrameLayout
+                        android:layout_width="122dp"
+                        android:layout_height="wrap_content"
+                        app:myFrameAspectRatio="1.45">
+
+                        <FrameLayout
+                            android:id="@+id/holdPhotoNormalLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                app:riv_corner_radius="6dp"
+                                android:src="@drawable/ic_renzheng_scsfz"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+                            <FrameLayout
+                                android:background="@drawable/bg_select_identity_info_add_photo_fog"
+                                android:layout_gravity="center"
+                                android:layout_width="39dp"
+                                android:layout_height="39dp">
+
+                                <com.makeramen.roundedimageview.RoundedImageView
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_renzheng_sctp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"/>
+
+                            </FrameLayout>
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:id="@+id/holdPhotoShowLayout"
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/holdPhotoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"/>
+
+                            <View
+                                android:background="@drawable/bg_select_identity_info_photo_fog"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <ImageView
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_renzheng_zhang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </FrameLayout>
+
+                    </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/color_9EA7B9"
+                        android:text="@string/identity_positive_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="1dp"
+                    android:orientation="vertical"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/uploadView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center"
+        android:text="@string/upload"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/bg_select_identity_info_upload_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

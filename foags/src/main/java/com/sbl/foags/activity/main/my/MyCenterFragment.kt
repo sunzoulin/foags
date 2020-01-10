@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.addressbook.AddressBookActivity
+import com.sbl.foags.activity.authenticate.center.AuthenticateCenterActivity
 import com.sbl.foags.activity.moenybag.MyMoneyBagActivity
 import com.sbl.foags.activity.setting.SettingActivity
 import com.sbl.foags.base.BaseFragment
@@ -132,6 +133,10 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
 
             moneyBagLayout -> {
                 openActivity(MyMoneyBagActivity::class.java)
+            }
+
+            authenticationCenterLayout -> {
+                openActivity(AuthenticateCenterActivity::class.java)
             }
 
             settingView -> {

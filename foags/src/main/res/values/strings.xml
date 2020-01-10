@@ -82,4 +82,41 @@
     <string name="all_comment">全部评论</string>
     <string name="please_comment">评论吧...</string>
     <string name="let_me_say_two_words">我来说两句...</string>
+    <string name="send">发送</string>
+
+    <string name="lollipop_authenticate_agreement">棒棒糖认证协议</string>
+    <string name="authenticate_new_model">认证成为模特</string>
+    <string name="on_spotlight_stage_show_play">登上聚光灯舞台，展现精彩</string>
+    <string name="authenticate_new_photographer">认证成为摄影师</string>
+    <string name="together_discover_and_create_value">共同发现美，共同创造价值</string>
+    <string name="lollipop_authenticate_agreement_content">&#12288;&#12288;协议书有广义和狭义之分。广义的协议书是指社会集团或个人处理各种社会关系、事务时常用的“契约”类文书，包括合同、议定书、条约、公约、联合宣言、联合声明、条据等。狭义的协议书指国家、政党、企业、团体或个人就某个问题经过谈判或共同协商，取得一致意见后，订立的一种具有经济或其它关系的契约性文书。协议书是应用写作的重要组成部分。</string>
+    <string name="agree">同意</string>
+    <string name="refuse">拒绝</string>
+    <string name="upload_head_pic">上传头像</string>
+    <string name="platform_nick_name">平台昵称</string>
+    <string name="gender">性别</string>
+    <string name="city_where">所在城市</string>
+    <string name="identity_authenticate">身份认证</string>
+    <string name="upload_representative_works">上传代表作品</string>
+    <string name="please_input_you_nick_name">请输入你的昵称</string>
+    <string name="not_input">未填写</string>
+    <string name="not_add">未添加</string>
+    <string name="not_select">未选择</string>
+    <string name="finish">完成</string>
+    <string name="sure">确定</string>
+    <string name="select_city">选择地点</string>
+    <string name="select_gender">选择性别</string>
+    <string name="goto_open">去开启</string>
+    <string name="permission_not_open_tip">您的权限未开启，请在系统设置页面开启后重试</string>
+    <string name="real_name">真实姓名</string>
+    <string name="please_input_you_real_name">请输入你的真实姓名</string>
+    <string name="identity_id_number">身份证号</string>
+    <string name="please_input_you_identity_id_number">请输入你的身份证号</string>
+    <string name="identity_positive_and_negative_photo">身份证明正、反两面照片</string>
+    <string name="identity_positive_photo">身份证明正面</string>
+    <string name="identity_negative_photo">身份证明反面</string>
+    <string name="hold_identity_negative_photo">手持身份证明正面照片</string>
+    <string name="upload">上传</string>
+    <string name="please_upload_5_to_9_work_photo">请上传5-9张代表作品</string>
+
 </resources>
