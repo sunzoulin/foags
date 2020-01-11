@@ -39,19 +39,6 @@ allprojects {
     }
 }
 
-subprojects {
-    // 解决不同依赖版本的问题
-    project.configurations.all {
-        resolutionStrategy.eachDependency { details ->
-            // Force all of the primary support libraries to use the same version.
-            if (details.requested.group == 'com.android.support'
-                    && !details.requested.name.contains('multidex')) {
-                details.useVersion "$ANDROID_SUPPORT_VERSION"
-            }
-        }
-    }
-}
-
 
 task clean(type: Delete) {
     delete rootProject.buildDir

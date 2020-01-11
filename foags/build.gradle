@@ -18,6 +18,11 @@ android {
         androidExtensions {
             experimental = true
         }
+
+
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
     buildTypes {
         release {
@@ -52,6 +57,7 @@ dependencies {
     implementation project(':TimePickerDialog')
 
     implementation project(':PullToRefresh')
+    implementation project(':weiXinRecorded')
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'

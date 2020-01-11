@@ -43,6 +43,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature
@@ -112,6 +113,7 @@
 
         <activity android:name=".activity.authenticate.photographer.work.SelectWorkPhotoActivity"/>
 
+        <activity android:name=".activity.authenticate.model.video.RecordVideoActivity"/>
     </application>
 
 </manifest>

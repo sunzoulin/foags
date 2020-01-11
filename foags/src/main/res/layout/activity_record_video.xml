@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <include android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_common_title_layout"/>
+
+            <TextView
+                android:textSize="15sp"
+                android:textColor="@color/color_757575"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/auth_video_read_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textSize="15sp"
+                android:textColor="@color/color_BECCD9"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/auth_video_read_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:background="@drawable/bg_record_video_read_content_top"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/color_333333"
+                android:textSize="15sp"
+                android:text="@string/auth_video_read_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="@drawable/bg_record_video_read_content_bottom"/>
+
+
+            <com.sbl.foags.view.MyAspectRatioFrameLayout
+                android:id="@+id/recordLayout"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                app:myFrameAspectRatio="0.8"
+                android:background="@color/black">
+
+                <SurfaceView
+                    android:id="@+id/surfaceView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/finishShowView"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <View
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_record_video_surface_view_bottom"/>
+
+               <TextView
+                   android:id="@+id/timeView"
+                   android:text="00:00"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="10dp"
+                   android:layout_gravity="bottom|center_horizontal"
+                   android:textColor="@color/white"
+                   android:textSize="15sp"/>
+
+                <ImageView
+                    android:id="@+id/playView"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_play"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"/>
+
+            </com.sbl.foags.view.MyAspectRatioFrameLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/reRecordView"
+                        android:visibility="invisible"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_renzheng_chonglu"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/startAndStopView"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_renzheng_lux"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"/>
+
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/sureAndSCView"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_renzheng_fzsxt"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"/>
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+
+</LinearLayout>

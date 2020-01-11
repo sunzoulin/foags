@@ -1,2 +1,2 @@
-include ':foags', ':PullToRefresh', ':TimePickerDialog'
+include ':foags', ':PullToRefresh', ':TimePickerDialog', ':weiXinRecorded'
 rootProject.name='foags'

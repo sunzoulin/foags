@@ -118,5 +118,13 @@
     <string name="hold_identity_negative_photo">手持身份证明正面照片</string>
     <string name="upload">上传</string>
     <string name="please_upload_5_to_9_work_photo">请上传5-9张代表作品</string>
+    <string name="auth_video_edit_fail">视频编辑失败</string>
+    <string name="auth_video_record_fail">视频录制失败</string>
+    <string name="auth_video_please_retry_record">中途退出，请重新录制</string>
+
+    <string name="auth_video_read_title">请按照要求进行视频认证：请你本人正脸上半身入镜宣读下面文本内容</string>
+    <string name="auth_video_read_tip">其中：xxx替换为您的真实姓名</string>
+    <string name="auth_video_read_content">我是xxx，我申请成为棒棒糖认证模特\n我的认证码是：%1$s</string>
+    <string name="video_authenticate">视频认证</string>
 
 </resources>
