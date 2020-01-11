@@ -1,6 +1,8 @@
 package com.sbl.foags.activity.authenticate.model.video
 
 import android.hardware.Camera
+import android.media.MediaRecorder
+import android.os.Environment
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
@@ -10,21 +12,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.lansosdk.videoeditor.LanSoEditor
-import com.lansosdk.videoeditor.LanSongFileUtil
-import com.libyuv.LibyuvUtil
 import com.sbl.foags.R
 import com.sbl.foags.base.BaseActivity
+import com.sbl.foags.utils.CameraHelp
+import com.sbl.foags.utils.RxJavaUtil
 import com.sbl.foags.utils.UIUtils
 import com.sbl.foags.utils.statusbar.StatusBarUtil
-import com.zhaoss.weixinrecorded.util.CameraHelp
-import com.zhaoss.weixinrecorded.util.MyVideoEditor
-import com.zhaoss.weixinrecorded.util.RecordUtil
-import com.zhaoss.weixinrecorded.util.RecordUtil.OnPreviewFrameListener
-import com.zhaoss.weixinrecorded.util.RxJavaUtil
-import com.zhaoss.weixinrecorded.util.RxJavaUtil.OnRxAndroidListener
-import com.zhaoss.weixinrecorded.util.RxJavaUtil.OnRxLoopListener
 import java.io.File
+import java.io.IOException
 import java.util.*
 
 
@@ -42,17 +37,12 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
     private lateinit var startAndStopView: ImageView
     private lateinit var sureAndSCView: ImageView
 
-    private var isRecordVideo = false
+    private var isRecording = false
     private var videoDuration: Long = 0
     private var recordTime: Long = 0
-    private var videoPath: String? = null
-    private var audioPath: String? = null
-    private val mVideoEditor = MyVideoEditor()
     private val mCameraHelp = CameraHelp()
+    private var mediaRecorder: MediaRecorder? = null
     private var mSurfaceHolder: SurfaceHolder? = null
-    private var recordUtil: RecordUtil? = null
-    private var mOnPreviewFrameListener: OnPreviewFrameListener? = null
-
     private var resultPath: String? = null
 
 
@@ -63,10 +53,6 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
     override fun initLayout(): Int = R.layout.activity_record_video
 
     override fun initView() {
-        LanSoEditor.initSDK(this, null)
-        LanSongFileUtil.setFileDir("/sdcard/FOAgsVideoAuth/" + System.currentTimeMillis() + "/")
-        LibyuvUtil.loadLibrary()
-
         bindViews()
     }
 
@@ -105,7 +91,6 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
                 hasTest = true
 
                 recordLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val width = recordLayout.measuredWidth
                 val height = recordLayout.measuredHeight
 
                 recordLayout.post {
@@ -117,13 +102,6 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
                 }
 
 
-
-
-                mCameraHelp.setPreviewCallback { data, camera ->
-                    if (isRecordVideo && mOnPreviewFrameListener != null) {
-                        mOnPreviewFrameListener!!.onPreviewFrame(data)
-                    }
-                }
                 surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
                     override fun surfaceCreated(holder: SurfaceHolder) {
                         mSurfaceHolder = holder
@@ -153,17 +131,12 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
 
     override fun onPause() {
         super.onPause()
-        onError(UIUtils.getString(R.string.auth_video_please_retry_record))
+        errorStop(UIUtils.getString(R.string.auth_video_please_retry_record))
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        releaseCamera()
-    }
-
-    private fun releaseCamera() {
         mCameraHelp.release()
-        recordUtil?.stop()
     }
 
 
@@ -178,13 +151,17 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
             }
 
             startAndStopView -> {
-                if(isRecordVideo){
-                    isRecordVideo = false
-                    upEvent()
-                    finishVideo()
+                if(isRecording){
+                    isRecording = false
+                    stopRecorder()
+                    initFinishRecorderState()
                 }else{
-                    isRecordVideo = true
-                    startRecord()
+                    isRecording = true
+                    startRecorder()
+                    initStartRecordState()
+                    videoDuration = 0
+                    recordTime = System.currentTimeMillis()
+                    runLoopPro()
                 }
             }
 
@@ -205,7 +182,6 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
                             mSurfaceHolder
                         )
                     }
-
                 }else{
                     Toast.makeText(this@RecordVideoActivity, resultPath, Toast.LENGTH_SHORT).show()
                 }
@@ -214,54 +190,10 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
     }
 
 
-    private fun startRecord() {
-        RxJavaUtil.run<Boolean>(object : OnRxAndroidListener<Boolean?> {
-            @Throws(Throwable::class)
-            override fun doInBackground(): Boolean? {
-                videoPath =
-                    LanSongFileUtil.DEFAULT_DIR + System.currentTimeMillis() + ".h264"
-                audioPath =
-                    LanSongFileUtil.DEFAULT_DIR + System.currentTimeMillis() + ".pcm"
-                val isFrontCamera =
-                    mCameraHelp.cameraId == Camera.CameraInfo.CAMERA_FACING_FRONT
-                val rotation: Int
-                rotation = if (isFrontCamera) {
-                    270
-                } else {
-                    90
-                }
-                recordUtil = RecordUtil(
-                    videoPath,
-                    audioPath,
-                    mCameraHelp.width,
-                    mCameraHelp.height,
-                    rotation,
-                    isFrontCamera
-                )
-                return true
-            }
-
-            override fun onFinish(result: Boolean?) {
-                mOnPreviewFrameListener = recordUtil!!.start()
-                videoDuration = 0
-                recordTime = System.currentTimeMillis()
-                runLoopPro()
-
-                initStartRecordState()
-            }
-
-            override fun onError(e: Throwable) {
-                e.printStackTrace()
-                onError(UIUtils.getString(R.string.auth_video_record_fail))
-            }
-        })
-    }
-
-
     private fun runLoopPro() {
-        RxJavaUtil.loop(20, object : OnRxLoopListener {
+        RxJavaUtil.loop(20, object : RxJavaUtil.OnRxLoopListener {
             override fun takeWhile(): Boolean {
-                return recordUtil != null && recordUtil!!.isRecording
+                return isRecording
             }
 
             override fun onExecute() {
@@ -276,40 +208,19 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
 
             override fun onError(e: Throwable) {
                 e.printStackTrace()
-                onError(UIUtils.getString(R.string.auth_video_record_fail))
+                errorStop(UIUtils.getString(R.string.auth_video_record_fail))
             }
         })
     }
 
 
-    private fun finishVideo() {
-        RxJavaUtil.run<String>(object : OnRxAndroidListener<String?> {
-            @Throws(Exception::class)
-            override fun doInBackground(): String? { //合并h264
-                //h264转mp4
-                var mp4Path =
-                    LanSongFileUtil.DEFAULT_DIR + System.currentTimeMillis() + ".mp4"
-                mVideoEditor.h264ToMp4(videoPath, mp4Path)
-                //合成音频
-                val aacPath: String = mVideoEditor.executePcmEncodeAac(
-                    audioPath,
-                    RecordUtil.sampleRateInHz,
-                    RecordUtil.channelCount
-                )
-                //音视频混合
-                mp4Path = mVideoEditor.executeVideoMergeAudio(mp4Path, aacPath)
-                return mp4Path
-            }
-
-            override fun onFinish(result: String?) {
-                initFinishRecorderState(result!!)
-            }
-
-            override fun onError(e: Throwable) {
-                e.printStackTrace()
-                onError(UIUtils.getString(R.string.auth_video_edit_fail))
-            }
-        })
+    private fun errorStop(content: String){
+        if(isRecording){
+            isRecording = false
+            stopRecorder()
+            initReleaseRecorderState()
+            Toast.makeText(this@RecordVideoActivity, content, Toast.LENGTH_SHORT).show()
+        }
     }
 
 
@@ -329,21 +240,6 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
         ).toString() else mFormatter.format("%02d:%02d", minutes, seconds).toString()
     }
 
-
-    private fun onError(content: String){
-        if(isRecordVideo){
-            Toast.makeText(this@RecordVideoActivity, content, Toast.LENGTH_SHORT).show()
-            upEvent()
-            initReleaseRecorderState()
-        }
-    }
-
-    private fun upEvent() {
-        if (recordUtil != null) {
-            recordUtil!!.stop()
-            recordUtil = null
-        }
-    }
 
     private fun initReleaseRecorderState(){
         timeView.text = "00:00"
@@ -370,10 +266,10 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
     }
 
 
-    private fun initFinishRecorderState(url: String){
-        val imageFile = File(url)
+    private fun initFinishRecorderState(){
+        val imageFile = File(resultPath)
         if (imageFile.exists()) {
-            this.resultPath = url
+            this.resultPath = resultPath
             playView.visibility = View.VISIBLE
             finishShowView.visibility = View.VISIBLE
             Glide.with(this).load(imageFile).into(finishShowView)
@@ -384,5 +280,52 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
         startAndStopView.visibility = View.INVISIBLE
         sureAndSCView.visibility = View.VISIBLE
         sureAndSCView.setImageResource(R.drawable.ic_renzheng_wancheng)
+    }
+
+
+
+    private fun startRecorder(){
+        resultPath =
+            Environment.getExternalStorageDirectory().absolutePath + File.separator + "Video" + System.currentTimeMillis() + ".mp4"
+
+        mCameraHelp.camera.unlock()
+        mediaRecorder = MediaRecorder()
+        mediaRecorder!!.setCamera(mCameraHelp.camera)
+        mediaRecorder!!.setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
+        mediaRecorder!!.setVideoSource(MediaRecorder.VideoSource.CAMERA)
+        mediaRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+        mediaRecorder!!.setVideoEncoder(MediaRecorder.VideoEncoder.H264)
+        mediaRecorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+        mediaRecorder!!.setVideoSize(1920, 1080)
+        mediaRecorder!!.setVideoFrameRate(30)
+        mediaRecorder!!.setVideoEncodingBitRate(1024 * 1024 * 20)
+        //        setCamcorderProfile();
+        if (mCameraHelp.cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {
+            mediaRecorder!!.setOrientationHint(90)
+        } else {
+            mediaRecorder!!.setOrientationHint(270)
+        }
+        mediaRecorder!!.setPreviewDisplay(surfaceView.holder.surface)
+        //        mediaRecorder.setMaxDuration(1000 * VIDEO_TIMES);
+        mediaRecorder!!.setOutputFile(resultPath)
+        //        setVideoOrientation();
+        try {
+            mediaRecorder!!.prepare()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        mediaRecorder!!.start()
+    }
+
+    private fun stopRecorder() {
+        if (mediaRecorder != null) {
+            try {
+                mediaRecorder!!.stop()
+            } catch (e: Exception) {
+            }
+            mediaRecorder!!.release()
+            mediaRecorder = null
+        }
+        mCameraHelp.camera?.lock()
     }
 }
