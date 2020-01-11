@@ -114,6 +114,8 @@
         <activity android:name=".activity.authenticate.photographer.work.SelectWorkPhotoActivity"/>
 
         <activity android:name=".activity.authenticate.model.video.RecordVideoActivity"/>
+
+        <activity android:name=".activity.authenticate.model.wechat.EditWeChatActivity"/>
     </application>
 
 </manifest>

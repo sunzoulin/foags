@@ -126,5 +126,11 @@
     <string name="auth_video_read_tip">其中：xxx替换为您的真实姓名</string>
     <string name="auth_video_read_content">我是xxx，我申请成为棒棒糖认证模特\n我的认证码是：%1$s</string>
     <string name="video_authenticate">视频认证</string>
+    <string name="add_wechat">添加微信</string>
+    <string name="wechat_number">微信号</string>
+    <string name="please_input_you_wechat_number">输入你的微信号</string>
+    <string name="price">价格</string>
+    <string name="select_price">选择价格</string>
+
 
 </resources>
