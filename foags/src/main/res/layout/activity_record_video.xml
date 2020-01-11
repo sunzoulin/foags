@@ -52,16 +52,13 @@
                 android:background="@drawable/bg_record_video_read_content_bottom"/>
 
 
-            <com.sbl.foags.view.MyAspectRatioFrameLayout
+            <FrameLayout
                 android:id="@+id/recordLayout"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                app:myFrameAspectRatio="0.8"
                 android:background="@color/black">
 
                 <SurfaceView
@@ -100,7 +97,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"/>
 
-            </com.sbl.foags.view.MyAspectRatioFrameLayout>
+            </FrameLayout>
 
 
             <LinearLayout

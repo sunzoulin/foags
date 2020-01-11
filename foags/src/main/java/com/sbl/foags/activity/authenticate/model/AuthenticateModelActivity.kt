@@ -13,6 +13,7 @@ import com.sbl.foags.utils.PermissionUtils
 import com.sbl.foags.utils.SystemUtil
 import com.sbl.foags.utils.UIUtils
 import com.sbl.foags.utils.statusbar.StatusBarUtil
+import com.zhaoss.weixinrecorded.activity.RecordedActivity
 
 
 class AuthenticateModelActivity: BaseActivity(), View.OnClickListener,
@@ -65,7 +66,9 @@ class AuthenticateModelActivity: BaseActivity(), View.OnClickListener,
                     PermissionUtils.requestRuntimePermission(this, object : PermissionUtils.OnPermissionListener {
                         override fun onPermissionGranted(permissionList: MutableList<String>?) {
                             if (permissionList?.size == permissions.size) {
-                                openActivity(RecordVideoActivity::class.java)
+//                                openActivity(RecordVideoActivity::class.java)
+
+                                openActivity(RecordedActivity::class.java)
                             }
                         }
 
@@ -75,7 +78,8 @@ class AuthenticateModelActivity: BaseActivity(), View.OnClickListener,
 
                     }, permissions)
                 } else {
-                    openActivity(RecordVideoActivity::class.java)
+//                    openActivity(RecordVideoActivity::class.java)
+                    openActivity(RecordedActivity::class.java)
                 }
             }
         }

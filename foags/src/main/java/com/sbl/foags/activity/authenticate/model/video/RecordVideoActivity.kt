@@ -4,6 +4,7 @@ import android.hardware.Camera
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
@@ -81,6 +82,7 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
         startAndStopView = findViewById(R.id.startAndStopView)
         sureAndSCView = findViewById(R.id.sureAndSCView)
 
+
         backView.setOnClickListener(this)
         playView.setOnClickListener(this)
         reRecordView.setOnClickListener(this)
@@ -89,33 +91,61 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
     }
 
     override fun loadData() {
+
         titleView.text = UIUtils.getString(R.string.video_authenticate)
 
-        mCameraHelp.setPreviewCallback { data, camera ->
-            if (isRecordVideo && mOnPreviewFrameListener != null) {
-                mOnPreviewFrameListener!!.onPreviewFrame(data)
-            }
-        }
-        surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
-            override fun surfaceCreated(holder: SurfaceHolder) {
-                mSurfaceHolder = holder
-                mCameraHelp.openCamera(
-                    this@RecordVideoActivity,
-                    Camera.CameraInfo.CAMERA_FACING_FRONT,
-                    mSurfaceHolder
-                )
-            }
+        var hasTest = false
 
-            override fun surfaceChanged(
-                holder: SurfaceHolder,
-                format: Int,
-                width: Int,
-                height: Int
-            ) {
-            }
+        recordLayout.viewTreeObserver.addOnGlobalLayoutListener(object: ViewTreeObserver.OnGlobalLayoutListener {
 
-            override fun surfaceDestroyed(holder: SurfaceHolder) {
-                mCameraHelp.release()
+            override fun onGlobalLayout() {
+                if(hasTest){
+                    return
+                }
+                hasTest = true
+
+                recordLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                val width = recordLayout.measuredWidth
+                val height = recordLayout.measuredHeight
+
+                recordLayout.post {
+
+                    val layoutParams = recordLayout.layoutParams
+                    layoutParams.width  = (height/16) * 9
+                    layoutParams.height = height
+                    recordLayout.layoutParams = layoutParams
+                }
+
+
+
+
+                mCameraHelp.setPreviewCallback { data, camera ->
+                    if (isRecordVideo && mOnPreviewFrameListener != null) {
+                        mOnPreviewFrameListener!!.onPreviewFrame(data)
+                    }
+                }
+                surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+                    override fun surfaceCreated(holder: SurfaceHolder) {
+                        mSurfaceHolder = holder
+                        mCameraHelp.openCamera(
+                            this@RecordVideoActivity,
+                            Camera.CameraInfo.CAMERA_FACING_FRONT,
+                            mSurfaceHolder
+                        )
+                    }
+
+                    override fun surfaceChanged(
+                        holder: SurfaceHolder,
+                        format: Int,
+                        width: Int,
+                        height: Int
+                    ) {
+                    }
+
+                    override fun surfaceDestroyed(holder: SurfaceHolder) {
+                        mCameraHelp.release()
+                    }
+                })
             }
         })
     }
@@ -160,7 +190,7 @@ class RecordVideoActivity: BaseActivity(), View.OnClickListener {
 
             sureAndSCView -> {
 
-                if(reRecordView.visibility == View.GONE){
+                if(reRecordView.visibility == View.INVISIBLE){
 
                     if (mCameraHelp.cameraId == Camera.CameraInfo.CAMERA_FACING_BACK) {
                         mCameraHelp.openCamera(
