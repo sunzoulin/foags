@@ -116,6 +116,10 @@
         <activity android:name=".activity.authenticate.model.video.RecordVideoActivity"/>
 
         <activity android:name=".activity.authenticate.model.wechat.EditWeChatActivity"/>
+
+        <activity android:name=".activity.authenticate.common.state.AuthenticateInfoSubmitSuccessActivity"/>
+
+        <activity android:name=".activity.main.my.edit.EditMyUserInfoActivity"/>
     </application>
 
 </manifest>

@@ -104,8 +104,14 @@
     <string name="not_select">未选择</string>
     <string name="finish">完成</string>
     <string name="sure">确定</string>
+    <string name="please_select">请选择</string>
     <string name="select_city">选择地点</string>
     <string name="select_gender">选择性别</string>
+    <string name="select_height">选择身高</string>
+    <string name="select_weight">选择体重</string>
+    <string name="select_constellation">选择星座</string>
+    <string name="select_three_circles">选择三围</string>
+    <string name="select_occupation_tag">选择职业标签</string>
     <string name="goto_open">去开启</string>
     <string name="permission_not_open_tip">您的权限未开启，请在系统设置页面开启后重试</string>
     <string name="real_name">真实姓名</string>
@@ -131,6 +137,29 @@
     <string name="please_input_you_wechat_number">输入你的微信号</string>
     <string name="price">价格</string>
     <string name="select_price">选择价格</string>
-
+    <string name="signature">个性签名</string>
+    <string name="please_input_signature">请输入个性签名</string>
+    <string name="occupation_tag">职业标签</string>
+    <string name="height">身高</string>
+    <string name="weight">体重</string>
+    <string name="three_circles">三围</string>
+    <string name="bust_circle">胸围</string>
+    <string name="waist_circle">腰围</string>
+    <string name="hip_circle">臀围</string>
+    <string name="constellation">星座</string>
+    <string name="most_satisfactory_position">最满意的部位</string>
+    <string name="views_on_sex">对性的看法</string>
+    <string name="you_submit_info_we_have_received">你提交的认证资料我们已经收到</string>
+    <string name="please_add_service_wechat_for_authentication">请加客服微信，进行认证</string>
+    <string name="click_replication">点击复制</string>
+    <string name="submit_examine">提交审核</string>
+    <string name="submit_success">提交成功</string>
+    <string name="submit_fail">提交失败</string>
+    <string name="i_know">我知道了</string>
+    <string name="copied_to_pasteboard">已复制到粘贴板</string>
+    <string name="my_user_info">个人资料</string>
+    <string name="upload_background_pic">上传背景图</string>
+    <string name="nick_name">昵称</string>
+    <string name="save">保存</string>
 
 </resources>

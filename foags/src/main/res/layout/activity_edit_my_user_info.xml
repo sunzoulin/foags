@@ -68,6 +68,49 @@
                 android:layout_height="1dp"
                 android:background="@color/color_E4E4E4"/>
 
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/backgroundPicLayout"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <TextView
+                    android:textSize="15sp"
+                    android:textColor="@color/color_333333"
+                    android:text="@string/upload_background_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="1dp"/>
+
+                <ImageView
+                    android:id="@+id/backgroundPicView"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:scaleType="centerCrop"
+                    android:layout_width="44dp"
+                    android:layout_height="34dp"/>
+
+                <ImageView
+                    android:src="@drawable/ic_right_arrow_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_E4E4E4"/>
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
@@ -79,7 +122,7 @@
                 <TextView
                     android:textSize="15sp"
                     android:textColor="@color/color_333333"
-                    android:text="@string/platform_nick_name"
+                    android:text="@string/nick_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -119,77 +162,24 @@
                 <TextView
                     android:textSize="15sp"
                     android:textColor="@color/color_333333"
-                    android:text="@string/gender"
+                    android:text="@string/signature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="1dp"/>
-
-
-
-                <TextView
-                    android:id="@+id/genderTextView"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                <EditText
                     android:textSize="15sp"
-                    android:textColor="@color/color_9EA7B9"
-                    android:text="@string/not_select"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:src="@drawable/ic_right_arrow_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_E4E4E4"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/cityWhereLayout"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:gravity="left|center_vertical"
+                    android:inputType="text"
                     android:textColor="@color/color_333333"
-                    android:text="@string/city_where"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <View
+                    android:textColorHint="@color/color_9EA7B9"
+                    android:background="@null"
+                    android:hint="@string/please_input_signature"
+                    android:layout_marginLeft="15dp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="1dp"/>
-
-
-                <TextView
-                    android:id="@+id/cityWhereTextView"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/color_9EA7B9"
-                    android:text="@string/not_select"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:src="@drawable/ic_right_arrow_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"/>
 
             </LinearLayout>
 
@@ -199,99 +189,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/color_E4E4E4"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/identityAuthenticateLayout"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:textSize="15sp"
-                    android:textColor="@color/color_333333"
-                    android:text="@string/identity_authenticate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="1dp"/>
-
-
-                <TextView
-                    android:id="@+id/identityAuthenticateTextView"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/color_9EA7B9"
-                    android:text="@string/not_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:src="@drawable/ic_right_arrow_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_E4E4E4"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/uploadRepresentativeWorksLayout"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-
-                <TextView
-                    android:textSize="15sp"
-                    android:textColor="@color/color_333333"
-                    android:text="@string/upload_representative_works"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="1dp"/>
-
-
-                <TextView
-                    android:id="@+id/uploadRepresentativeWorksTextView"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/color_9EA7B9"
-                    android:text="@string/not_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageView
-                    android:src="@drawable/ic_right_arrow_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_E4E4E4"/>
-
 
         </LinearLayout>
 

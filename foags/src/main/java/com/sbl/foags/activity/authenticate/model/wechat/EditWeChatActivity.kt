@@ -59,7 +59,7 @@ class EditWeChatActivity: BaseActivity(),
             }
 
             priceLayout -> {
-                val mDialog = SelectArrayStringListDialog.Builder()
+                val dialog = SelectArrayStringListDialog.Builder()
                     .setCyclic(false)
                     .setWheelItemTextNormalColor(UIUtils.getColor(R.color.color_9EA7B9))
                     .setWheelItemTextSelectorColor(UIUtils.getColor(R.color.color_333333))
@@ -68,7 +68,7 @@ class EditWeChatActivity: BaseActivity(),
                     .setListener(this)
                     .setArrayStringList(UIUtils.getStringArray(R.array.weChatPrice))
                     .build()
-                mDialog.show(supportFragmentManager, "SelectWeChatPriceDialog")
+                dialog.show(supportFragmentManager, "SelectWeChatPriceDialog")
             }
         }
     }

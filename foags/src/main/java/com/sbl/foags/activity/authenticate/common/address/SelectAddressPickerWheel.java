@@ -6,7 +6,6 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.jzxiang.pickerview.config.PickerConfig;
 import com.jzxiang.pickerview.wheel.OnWheelChangedListener;
 import com.jzxiang.pickerview.wheel.WheelView;
 import com.sbl.foags.MyApplication;

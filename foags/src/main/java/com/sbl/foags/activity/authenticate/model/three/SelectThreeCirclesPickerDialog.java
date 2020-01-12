@@ -1,8 +1,7 @@
-package com.sbl.foags.activity.authenticate.common.address;
+package com.sbl.foags.activity.authenticate.model.three;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,14 +17,16 @@ import androidx.fragment.app.DialogFragment;
 
 import com.sbl.foags.R;
 
+import java.util.ArrayList;
 
-public class SelectAddressPickerDialog extends DialogFragment implements View.OnClickListener {
 
-    private SelectAddressPickerConfig mPickerConfig;
-    private SelectAddressPickerWheel mAddressWheel;
+public class SelectThreeCirclesPickerDialog extends DialogFragment implements View.OnClickListener {
 
-    private static SelectAddressPickerDialog newInstance(SelectAddressPickerConfig pickerConfig) {
-        SelectAddressPickerDialog pickerDialog = new SelectAddressPickerDialog();
+    private SelectThreeCirclesPickerConfig mPickerConfig;
+    private SelectThreeCirclesPickerWheel mThreeCirclesWheel;
+
+    private static SelectThreeCirclesPickerDialog newInstance(SelectThreeCirclesPickerConfig pickerConfig) {
+        SelectThreeCirclesPickerDialog pickerDialog = new SelectThreeCirclesPickerDialog();
         pickerDialog.initialize(pickerConfig);
         return pickerDialog;
     }
@@ -45,7 +46,7 @@ public class SelectAddressPickerDialog extends DialogFragment implements View.On
         window.setGravity(Gravity.BOTTOM);
     }
 
-    private void initialize(SelectAddressPickerConfig pickerConfig) {
+    private void initialize(SelectThreeCirclesPickerConfig pickerConfig) {
         mPickerConfig = pickerConfig;
     }
 
@@ -62,12 +63,12 @@ public class SelectAddressPickerDialog extends DialogFragment implements View.On
 
     private View initView() {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View view = inflater.inflate(R.layout.dialog_select_address_layout, null);
+        View view = inflater.inflate(R.layout.dialog_select_three_circles_layout, null);
         TextView sure = view.findViewById(R.id.finishView);
         sure.setOnClickListener(this);
         TextView cancel = view.findViewById(R.id.cancelView);
         cancel.setOnClickListener(this);
-        mAddressWheel = new SelectAddressPickerWheel(view, mPickerConfig);
+        mThreeCirclesWheel = new SelectThreeCirclesPickerWheel(view, mPickerConfig);
         return view;
     }
 
@@ -83,25 +84,19 @@ public class SelectAddressPickerDialog extends DialogFragment implements View.On
 
     private void sureClicked() {
         if(mPickerConfig.listener != null){
-            mPickerConfig.listener.onSelectAddress(mAddressWheel.getCurrentProvince().getName(),
-                    mAddressWheel.getCurrentCity().getName(),
-                    mAddressWheel.getCurrentCounty().getName());
+            mPickerConfig.listener.onSelectThreeCircles(mThreeCirclesWheel.getCurrentBust(),
+                    mThreeCirclesWheel.getCurrentWaist(),
+                    mThreeCirclesWheel.getCurrentHip());
         }
-
         dismiss();
     }
 
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        mAddressWheel.onDismiss();
-        super.onDismiss(dialog);
-    }
 
     public static class Builder {
-        SelectAddressPickerConfig mPickerConfig;
+        SelectThreeCirclesPickerConfig mPickerConfig;
 
         public Builder() {
-            mPickerConfig = new SelectAddressPickerConfig();
+            mPickerConfig = new SelectThreeCirclesPickerConfig();
         }
 
         public Builder setWheelItemTextNormalColor(int color) {
@@ -124,12 +119,27 @@ public class SelectAddressPickerDialog extends DialogFragment implements View.On
             return this;
         }
 
-        public Builder setListener(SelectAddressListener listener) {
+        public Builder setListener(SelectThreeCirclesListener listener) {
             mPickerConfig.listener = listener;
             return this;
         }
 
-        public SelectAddressPickerDialog build() {
+        public Builder setBustList(ArrayList<String> bustList) {
+            mPickerConfig.bustList = bustList;
+            return this;
+        }
+
+        public Builder setWaistList(ArrayList<String> waistList) {
+            mPickerConfig.waistList = waistList;
+            return this;
+        }
+
+        public Builder setHipList(ArrayList<String> hipList) {
+            mPickerConfig.hipList = hipList;
+            return this;
+        }
+
+        public SelectThreeCirclesPickerDialog build() {
             return newInstance(mPickerConfig);
         }
     }

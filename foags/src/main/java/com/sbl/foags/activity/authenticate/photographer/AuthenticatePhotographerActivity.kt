@@ -18,6 +18,7 @@ import com.sbl.foags.activity.authenticate.agreement.AuthenticateAgreementListen
 import com.sbl.foags.activity.authenticate.common.address.SelectAddressListener
 import com.sbl.foags.activity.authenticate.common.address.SelectAddressPickerDialog
 import com.sbl.foags.activity.authenticate.common.identity.SelectIdentityInfoActivity
+import com.sbl.foags.activity.authenticate.common.state.AuthenticateInfoSubmitSuccessActivity
 import com.sbl.foags.activity.authenticate.common.string.SelectArrayStringListDialog
 import com.sbl.foags.activity.authenticate.common.string.SelectArrayStringListListener
 import com.sbl.foags.activity.authenticate.photographer.work.SelectWorkPhotoActivity
@@ -60,6 +61,8 @@ class AuthenticatePhotographerActivity: BaseActivity(),
     private lateinit var uploadRepresentativeWorksLayout: LinearLayout
     private lateinit var uploadRepresentativeWorksTextView: TextView
 
+    private lateinit var submitView: TextView
+
 
     override fun initStatusBarMode() {
         StatusBarUtil.setStatusBarMode(this, true, R.color.white)
@@ -91,12 +94,15 @@ class AuthenticatePhotographerActivity: BaseActivity(),
         uploadRepresentativeWorksLayout = findViewById(R.id.uploadRepresentativeWorksLayout)
         uploadRepresentativeWorksTextView = findViewById(R.id.uploadRepresentativeWorksTextView)
 
+        submitView = findViewById(R.id.submitView)
+
         backView.setOnClickListener(this)
         headPicLayout.setOnClickListener(this)
         genderLayout.setOnClickListener(this)
         cityWhereLayout.setOnClickListener(this)
         identityAuthenticateLayout.setOnClickListener(this)
         uploadRepresentativeWorksLayout.setOnClickListener(this)
+        submitView.setOnClickListener(this)
     }
 
 
@@ -117,7 +123,7 @@ class AuthenticatePhotographerActivity: BaseActivity(),
             }
 
             genderLayout -> {
-                val mDialog = SelectArrayStringListDialog.Builder()
+                val dialog = SelectArrayStringListDialog.Builder()
                     .setCyclic(false)
                     .setWheelItemTextNormalColor(UIUtils.getColor(R.color.color_9EA7B9))
                     .setWheelItemTextSelectorColor(UIUtils.getColor(R.color.color_333333))
@@ -126,18 +132,18 @@ class AuthenticatePhotographerActivity: BaseActivity(),
                     .setListener(this)
                     .setArrayStringList(UIUtils.getStringArray(R.array.gender))
                     .build()
-                mDialog.show(supportFragmentManager, "SelectArrayStringListDialog")
+                dialog.show(supportFragmentManager, "SelectGenderDialog")
             }
 
             cityWhereLayout -> {
-                val mDialog = SelectAddressPickerDialog.Builder()
+                val dialog = SelectAddressPickerDialog.Builder()
                     .setCyclic(false)
                     .setWheelItemTextNormalColor(UIUtils.getColor(R.color.color_9EA7B9))
                     .setWheelItemTextSelectorColor(UIUtils.getColor(R.color.color_333333))
                     .setWheelItemTextSize(18)
                     .setListener(this)
                     .build()
-                mDialog.show(supportFragmentManager, "SelectAddressPickerDialog")
+                dialog.show(supportFragmentManager, "SelectAddressDialog")
             }
 
             identityAuthenticateLayout -> {
@@ -146,6 +152,11 @@ class AuthenticatePhotographerActivity: BaseActivity(),
 
             uploadRepresentativeWorksLayout -> {
                 openActivity(SelectWorkPhotoActivity::class.java)
+            }
+
+            submitView -> {
+                openActivity(AuthenticateInfoSubmitSuccessActivity::class.java)
+                finish()
             }
         }
     }
@@ -217,7 +228,6 @@ class AuthenticatePhotographerActivity: BaseActivity(),
                     if (imageFile.exists()) {
                         Glide.with(this).load(imageFile).transform(CircleCrop()).into(headPicView)
                     }
-
                 }
             }
         }

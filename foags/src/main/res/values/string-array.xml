@@ -2,20 +2,253 @@
 <resources>
 
     <string-array name="gender">
-
         <item>男</item>
         <item>女</item>
-
     </string-array>
 
 
     <string-array name="weChatPrice">
-
         <item>3888</item>
         <item>5200</item>
         <item>8888</item>
         <item>13888</item>
+    </string-array>
 
+    <string-array name="occupationTag">
+        <item>勇敢</item>
+        <item>自信</item>
+        <item>低调</item>
+        <item>开朗</item>
+    </string-array>
+
+    <string-array name="height">
+        <item>140CM</item>
+        <item>141CM</item>
+        <item>142CM</item>
+        <item>143CM</item>
+        <item>144CM</item>
+        <item>145CM</item>
+        <item>146CM</item>
+        <item>147CM</item>
+        <item>148CM</item>
+        <item>149CM</item>
+        <item>150CM</item>
+        <item>151CM</item>
+        <item>152CM</item>
+        <item>153CM</item>
+        <item>154CM</item>
+        <item>155CM</item>
+        <item>156CM</item>
+        <item>157CM</item>
+        <item>158CM</item>
+        <item>159CM</item>
+        <item>160CM</item>
+        <item>161CM</item>
+        <item>162CM</item>
+        <item>163CM</item>
+        <item>164CM</item>
+        <item>165CM</item>
+        <item>166CM</item>
+        <item>167CM</item>
+        <item>168CM</item>
+        <item>169CM</item>
+        <item>170CM</item>
+        <item>171CM</item>
+        <item>172CM</item>
+        <item>173CM</item>
+        <item>174CM</item>
+        <item>175CM</item>
+        <item>176CM</item>
+        <item>177CM</item>
+        <item>178CM</item>
+        <item>179CM</item>
+        <item>180CM</item>
+        <item>181CM</item>
+        <item>182CM</item>
+        <item>183CM</item>
+        <item>184CM</item>
+        <item>185CM</item>
+        <item>186CM</item>
+        <item>187CM</item>
+        <item>188CM</item>
+        <item>189CM</item>
+        <item>190CM</item>
+        <item>191CM</item>
+        <item>192CM</item>
+        <item>193CM</item>
+        <item>194CM</item>
+        <item>195CM</item>
+        <item>196CM</item>
+        <item>197CM</item>
+        <item>198CM</item>
+        <item>199CM</item>
+        <item>200CM</item>
+        <item>201CM</item>
+        <item>202CM</item>
+        <item>203CM</item>
+        <item>204CM</item>
+        <item>205CM</item>
+        <item>206CM</item>
+        <item>207CM</item>
+        <item>208CM</item>
+        <item>209CM</item>
+        <item>210CM</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>40KG</item>
+        <item>41KG</item>
+        <item>42KG</item>
+        <item>43KG</item>
+        <item>44KG</item>
+        <item>45KG</item>
+        <item>46KG</item>
+        <item>47KG</item>
+        <item>48KG</item>
+        <item>49KG</item>
+        <item>50KG</item>
+        <item>51KG</item>
+        <item>52KG</item>
+        <item>53KG</item>
+        <item>54KG</item>
+        <item>55KG</item>
+        <item>56KG</item>
+        <item>57KG</item>
+        <item>58KG</item>
+        <item>59KG</item>
+        <item>60KG</item>
+        <item>61KG</item>
+        <item>62KG</item>
+        <item>63KG</item>
+        <item>64KG</item>
+        <item>65KG</item>
+        <item>66KG</item>
+        <item>67KG</item>
+        <item>68KG</item>
+        <item>69KG</item>
+        <item>70KG</item>
+        <item>71KG</item>
+        <item>72KG</item>
+        <item>73KG</item>
+        <item>74KG</item>
+        <item>75KG</item>
+        <item>76KG</item>
+        <item>77KG</item>
+        <item>78KG</item>
+        <item>79KG</item>
+        <item>80KG</item>
+        <item>81KG</item>
+        <item>82KG</item>
+        <item>83KG</item>
+        <item>84KG</item>
+        <item>85KG</item>
+        <item>86KG</item>
+        <item>87KG</item>
+        <item>88KG</item>
+        <item>89KG</item>
+        <item>90KG</item>
+        <item>91KG</item>
+        <item>92KG</item>
+        <item>93KG</item>
+        <item>94KG</item>
+        <item>95KG</item>
+        <item>96KG</item>
+        <item>97KG</item>
+        <item>98KG</item>
+        <item>99KG</item>
+        <item>100KG</item>
+        <item>101KG</item>
+        <item>102KG</item>
+        <item>103KG</item>
+        <item>104KG</item>
+        <item>105KG</item>
+        <item>106KG</item>
+        <item>107KG</item>
+        <item>108KG</item>
+        <item>109KG</item>
+        <item>110KG</item>
+    </string-array>
+
+    <string-array name="bustList">
+        <item>1CM</item>
+        <item>2CM</item>
+        <item>3CM</item>
+        <item>4CM</item>
+        <item>5CM</item>
+        <item>6CM</item>
+        <item>7CM</item>
+        <item>8CM</item>
+        <item>9CM</item>
+        <item>10CM</item>
+    </string-array>
+
+    <string-array name="waistList">
+        <item>1CM</item>
+        <item>2CM</item>
+        <item>3CM</item>
+        <item>4CM</item>
+        <item>5CM</item>
+        <item>6CM</item>
+        <item>7CM</item>
+        <item>8CM</item>
+        <item>9CM</item>
+        <item>10CM</item>
+    </string-array>
+
+    <string-array name="hipList">
+        <item>1CM</item>
+        <item>2CM</item>
+        <item>3CM</item>
+        <item>4CM</item>
+        <item>5CM</item>
+        <item>6CM</item>
+        <item>7CM</item>
+        <item>8CM</item>
+        <item>9CM</item>
+        <item>10CM</item>
+    </string-array>
+
+    <string-array name="constellation">
+        <item>水瓶座</item>
+        <item>双鱼座</item>
+        <item>白羊座</item>
+        <item>金牛座</item>
+        <item>双子座</item>
+        <item>巨蟹座</item>
+        <item>狮子座</item>
+        <item>处女座</item>
+        <item>天秤座</item>
+        <item>天蝎座</item>
+        <item>射手座</item>
+        <item>摩羯座</item>
+    </string-array>
+
+    <string-array name="mostSatisfactoryPosition">
+        <item>头发</item>
+        <item>眼睛</item>
+        <item>鼻子</item>
+        <item>嘴</item>
+        <item>耳朵</item>
+        <item>下巴</item>
+        <item>脖子</item>
+        <item>胸</item>
+        <item>腹</item>
+        <item>肚脐</item>
+        <item>腰</item>
+        <item>胳膊</item>
+        <item>手</item>
+        <item>手指</item>
+        <item>指甲</item>
+        <item>臀</item>
+        <item>腿</item>
+        <item>脚</item>
+        <item>脚趾</item>
+    </string-array>
+
+    <string-array name="viewsOnSex">
+        <item>奔放</item>
+        <item>保守</item>
+        <item>看心情</item>
     </string-array>
 
 </resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/cancelView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:text="@string/cancel"
+            android:textColor="@color/color_9EA7B9"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:text="@string/select_three_circles"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/color_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/finishView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:text="@string/finish"
+            android:textColor="@color/color_FD596A"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EEEEEE" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="25dp"
+        android:paddingTop="30dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bust_circle"
+                android:textColor="@color/color_FD596A"
+                android:textSize="15sp"/>
+
+            <FrameLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="190dp">
+
+                <com.jzxiang.pickerview.wheel.WheelView
+                    android:id="@+id/bust"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <View
+                    android:layout_gravity="top"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_top_bg"/>
+
+                <View
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_bottom_bg"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/waist_circle"
+                android:textColor="@color/color_FD596A"
+                android:textSize="15sp"/>
+
+            <FrameLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="190dp">
+
+                <com.jzxiang.pickerview.wheel.WheelView
+                    android:id="@+id/waist"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <View
+                    android:layout_gravity="top"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_top_bg"/>
+
+                <View
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_bottom_bg"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hip_circle"
+                android:textColor="@color/color_FD596A"
+                android:textSize="15sp"/>
+
+            <FrameLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="190dp">
+
+                <com.jzxiang.pickerview.wheel.WheelView
+                    android:id="@+id/hip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <View
+                    android:layout_gravity="top"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_top_bg"/>
+
+                <View
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/wheel_bottom_bg"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

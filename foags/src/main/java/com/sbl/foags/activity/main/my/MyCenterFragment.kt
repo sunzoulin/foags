@@ -11,6 +11,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.addressbook.AddressBookActivity
 import com.sbl.foags.activity.authenticate.center.AuthenticateCenterActivity
+import com.sbl.foags.activity.main.my.edit.EditMyUserInfoActivity
 import com.sbl.foags.activity.moenybag.MyMoneyBagActivity
 import com.sbl.foags.activity.setting.SettingActivity
 import com.sbl.foags.base.BaseFragment
@@ -24,6 +25,7 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
     private lateinit var swipeToLoadLayout: SwipeToLoadLayout
 
     private lateinit var settingView: ImageView
+    private lateinit var userInfoLayout: LinearLayout
     private lateinit var nickNameView: TextView
     private lateinit var memberView: UserMemberView
     private lateinit var starsLayout: LinearLayout
@@ -62,6 +64,7 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
     private fun bindViews(){
         swipeToLoadLayout = getViewById(R.id.swipeToLoadLayout)
         settingView = getViewById(R.id.settingView)
+        userInfoLayout = getViewById(R.id.userInfoLayout)
         nickNameView = getViewById(R.id.nickNameView)
         memberView = getViewById(R.id.memberView)
         starsLayout = getViewById(R.id.starsLayout)
@@ -91,6 +94,7 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
         swipeToLoadLayout.setOnRefreshListener(this)
 
         settingView.setOnClickListener(this)
+        userInfoLayout.setOnClickListener(this)
         starsLayout.setOnClickListener(this)
         diamondLayout.setOnClickListener(this)
         headPicView.setOnClickListener(this)
@@ -119,6 +123,10 @@ class MyCenterFragment: BaseFragment(), OnRefreshListener, View.OnClickListener 
 
     override fun onClick(v: View?) {
         when(v){
+            userInfoLayout -> {
+                openActivity(EditMyUserInfoActivity::class.java)
+            }
+
             friendLayout -> {
                 AddressBookActivity.open(requireContext(), 0)
             }
