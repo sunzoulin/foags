@@ -60,8 +60,6 @@ dependencies {
     //Glide图片加载
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
-    implementation 'jp.wasabeef:glide-transformations:4.1.0'
-    implementation 'jp.co.cyberagent.android:gpuimage:2.0.3'
 
     implementation 'com.bigkoo:convenientbanner:2.1.5'
 
@@ -74,7 +72,6 @@ dependencies {
 
 
     api 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
-    //Optional: see how to use the utility.
     api 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
 
 
