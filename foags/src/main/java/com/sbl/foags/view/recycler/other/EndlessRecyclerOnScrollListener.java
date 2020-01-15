@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 
-public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListener implements OnListLoadNextPageListener {
+public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListener implements OnListLoadNextPageListener, OnCurrentFirstTopListener {
 
     /**
      * 当前RecyclerView类型
@@ -33,6 +33,8 @@ public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListen
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
+
+        onCurrentIsFirstTop(recyclerView, dy <= 0);
 
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
 
@@ -98,6 +100,10 @@ public class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListen
 
     @Override
     public void onLoadNextPage(final View view) {
+    }
+
+    @Override
+    public void onCurrentIsFirstTop(View view, boolean isTop) {
     }
 
     public static enum LayoutManagerType {

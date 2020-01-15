@@ -112,7 +112,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
                 timerDisposable.dispose();
                 timerDisposable = null;
             }
-            timerDisposable = Observable.interval(1000, TimeUnit.MILLISECONDS)
+            timerDisposable = Observable.interval(100, TimeUnit.MILLISECONDS)
                     .subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(aLong -> {
