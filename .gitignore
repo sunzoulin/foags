@@ -4,7 +4,7 @@
 /.idea/workspace.xml
 /app/app.iml
 /.idea/runConfigurations.xml
-.DS_Store
+*.DS_Store
 /build
 /lib_yuv/.externalNativeBuild
 *.iml
