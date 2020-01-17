@@ -9,7 +9,6 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aspsine.swipetoloadlayout.OnRefreshListener
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
@@ -27,11 +26,9 @@ import com.sbl.foags.exoplayer.ExoPlayerListener
 import com.sbl.foags.user.User
 import com.sbl.foags.user.UserFollowStatus
 import com.sbl.foags.utils.statusbar.StatusBarUtil
-import com.sbl.foags.view.FScrollView
 import com.sbl.foags.view.recycler.FloatHeaderAndFooterRecyclerView
 import com.sbl.foags.view.recycler.other.EndlessRecyclerOnScrollListener
 import com.sbl.foags.view.recycler.other.HeaderAndFooterRecyclerViewAdapter
-import com.sbl.foags.view.recycler.other.RecyclerViewStateUtils
 
 
 class CubeVideoDetailActivity: BaseActivity(),
