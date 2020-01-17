@@ -1,8 +1,7 @@
 package com.sbl.foags.activity.cube.comment.dialog
 
+import android.app.Activity
 import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,10 +14,9 @@ import com.sbl.foags.R
 import com.sbl.foags.utils.KeyBoardUtil
 
 
-class EditCommentSendDialog(context: Context, private val listener: EditCommentSendListener):
-    Dialog(context, R.style.EditCommentSendDialog),
+class EditCommentSendDialog(val activity: Activity, private val listener: EditCommentSendListener):
+    Dialog(activity, R.style.EditCommentSendDialog),
     TextWatcher,
-    DialogInterface.OnDismissListener,
     View.OnClickListener {
 
 
@@ -39,7 +37,6 @@ class EditCommentSendDialog(context: Context, private val listener: EditCommentS
 
         initViews()
 
-        setOnDismissListener(this)
         KeyBoardUtil.openKeyBoard(commentEditView, context)
     }
 
@@ -68,8 +65,9 @@ class EditCommentSendDialog(context: Context, private val listener: EditCommentS
         }
     }
 
-    override fun onDismiss(dialog: DialogInterface?) {
-        KeyBoardUtil.closeKeyBoard(window, context)
+    override fun dismiss() {
+        KeyBoardUtil.closeKeyBoard(commentEditView, activity)
+        super.dismiss()
     }
 
     override fun onClick(v: View?) {
