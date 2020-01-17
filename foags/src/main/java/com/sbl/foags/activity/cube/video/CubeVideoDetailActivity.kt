@@ -13,6 +13,8 @@ import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aspsine.swipetoloadlayout.OnRefreshListener
 import com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.sbl.foags.R
 import com.sbl.foags.activity.cube.comment.AllCommentAdapter
 import com.sbl.foags.activity.cube.comment.data.CommentBean
@@ -138,7 +140,16 @@ class CubeVideoDetailActivity: BaseActivity(),
 
 
     override fun loadData() {
-        setVideoData("https://img-album.youguoquan.com/202001151746/ecaa119758671787b77f774f746434b2/prod/video/5ccd1bf08c661d5f0d5463e0/cbb_zNdyP8hd.m3u8")
+        setVideoData("https://img-album.youguoquan.com/202001241842/83ded72fe6a31a60cabd4bb3d3976112/prod/video/5ccd1bf08c661d5f0d5463e0/cbb_zNdyP8hd.m3u8")
+        setHeaderData("http://b-ssl.duitang.com/uploads/item/201704/10/20170410073535_HXVfJ.thumb.700_0.jpeg",
+            "迪丽热巴",
+            3000,
+            "古典与青春的碰撞",
+            99,
+            "00:15:59",
+        199,
+            "宅男女神@李梅梅 新作发布，在寒冷的冬天点燃你的熊熊欲火，写真包含两套服饰共20P,希望大家喜欢和支持！",
+            165)
         setCommentData()
     }
 
@@ -176,7 +187,7 @@ class CubeVideoDetailActivity: BaseActivity(),
     }
 
     override fun onRefresh() {
-        setVideoData("https://img-album.youguoquan.com/202001151746/ecaa119758671787b77f774f746434b2/prod/video/5ccd1bf08c661d5f0d5463e0/cbb_zNdyP8hd.m3u8")
+        setVideoData("https://img-album.youguoquan.com/202001241842/83ded72fe6a31a60cabd4bb3d3976112/prod/video/5ccd1bf08c661d5f0d5463e0/cbb_zNdyP8hd.m3u8")
         onFinishRefresh()
     }
 
@@ -277,5 +288,25 @@ class CubeVideoDetailActivity: BaseActivity(),
                 swipeToLoadLayout.isRefreshEnabled = isTop
             }
         }
+    }
+
+    fun setHeaderData(headPicUrl: String,
+                      nickName: String,
+                      fansCount: Long,
+                      title: String,
+                      price: Long,
+                      time: String,
+                      unlockCount: Long,
+                      desc: String,
+                      commentCount: Long){
+        Glide.with(this).load(headPicUrl).transform(CircleCrop()).into(headPicView)
+        nickNameView.text = nickName
+        fansCountView.text = "${fansCount}粉丝"
+        titleView.text = title
+        priceView.text = "$price"
+        timeView.text = time
+        unlockCountView.text = "${unlockCount}人解锁"
+        descView.text = desc
+        commentCountView.text = "${commentCount}"
     }
 }

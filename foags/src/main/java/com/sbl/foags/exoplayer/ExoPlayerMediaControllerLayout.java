@@ -28,6 +28,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ExoPlayerMediaControllerLayout extends RelativeLayout implements View.OnClickListener, OnSeekBarChangeListener {
 
+
     private final String TAG = "sbl ExoPlayerMediaControllerLayout";
 
     private ExoPlayerMediaControllerListener controllerListener;
@@ -42,7 +43,6 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
 
     private StringBuilder mFormatBuilder;
     private Formatter mFormatter;
-
     private boolean isShowing = false;
 
     private Disposable hindDisposable;
@@ -55,6 +55,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         mRoot = null;
     }
 
+
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
@@ -63,14 +64,15 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         }
     }
 
+
     private View makeControllerView() {
         mRoot = LayoutInflater.from(getContext()).inflate(R.layout.exo_player_media_controller_layout, this, false);
         initControllerView(mRoot);
         return mRoot;
     }
 
-    private void initControllerView(View v) {
 
+    private void initControllerView(View v) {
         switchStatusView = v.findViewById(R.id.switchStatusView);
         switchScreenView = v.findViewById(R.id.switchScreenView);
         seekBarView = v.findViewById(R.id.seekBarView);
@@ -123,10 +125,8 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
                             currentTimeView.setText(stringForTime(nowPosition));
                         }
                     });
-
         }
     }
-
 
 
     private void updateStatusView() {
@@ -143,6 +143,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         updateScreenView();
     }
 
+
     private void updateScreenView() {
         if (mRoot != null && switchScreenView != null && controllerListener != null) {
             if (getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -152,6 +153,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
             }
         }
     }
+
 
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
@@ -174,6 +176,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         }
     }
 
+
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (fromUser) {
@@ -182,15 +185,18 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         }
     }
 
+
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         updateStatusView();
-        show(ExoPlayerLayout.hideTime);
+        show(ExoPlayerLayout.HIDE_TIME);
     }
+
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
     }
+
 
     private void doPauseResume() {
         if (controllerListener != null) {
@@ -203,29 +209,32 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
             }
         }
         updateStatusView();
-        show(ExoPlayerLayout.hideTime);
+        show(ExoPlayerLayout.HIDE_TIME);
     }
 
 
     private void doFullScreen() {
         if (controllerListener != null) {
             controllerListener.doFullScreen();
-            show(ExoPlayerLayout.hideTime);
+            show(ExoPlayerLayout.HIDE_TIME);
         }
     }
+
 
     private void doSmallScreen() {
         if (controllerListener != null) {
             controllerListener.doSmallScreen();
-            show(ExoPlayerLayout.hideTime);
+            show(ExoPlayerLayout.HIDE_TIME);
         }
     }
+
 
     private void showControllerAnimation() {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "alpha", 0f, 1f);
         objectAnimator.setDuration(400);
         objectAnimator.start();
     }
+
 
     private void hideControllerAnimation(Animator.AnimatorListener animationListener) {
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "alpha", 1f, 0f);
@@ -234,6 +243,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         objectAnimator.start();
     }
 
+
     public void setAnchorView(ViewGroup view) {
         mAnchor = view;
         LayoutParams frameParams = new LayoutParams(-1, -1);
@@ -241,7 +251,6 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         View v = makeControllerView();
         addView(v, frameParams);
     }
-
 
 
     public void show(int timeout) {
@@ -301,6 +310,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         }
     }
 
+
     public void removeView(){
         if (mAnchor != null) {
             mAnchor.removeView(ExoPlayerMediaControllerLayout.this);
@@ -308,12 +318,12 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         isShowing = false;
     }
 
+
     public void releaseController() {
         if(hindDisposable != null){
             hindDisposable.dispose();
             hindDisposable = null;
         }
-
         if(timerDisposable != null){
             timerDisposable.dispose();
             timerDisposable = null;
@@ -324,6 +334,7 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         isShowing = false;
     }
 
+
     public void finishController() {
         releaseController();
         controllerListener = null;
@@ -333,7 +344,19 @@ public class ExoPlayerMediaControllerLayout extends RelativeLayout implements Vi
         System.gc();
     }
 
+
     public boolean isShowing() {
         return isShowing;
+    }
+
+
+    public void setShowStateView(boolean show) {
+        if (mRoot != null && switchStatusView != null && controllerListener != null) {
+            if (show) {
+                switchStatusView.setVisibility(View.VISIBLE);
+            } else {
+                switchStatusView.setVisibility(View.GONE);
+            }
+        }
     }
 }

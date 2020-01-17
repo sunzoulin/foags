@@ -55,14 +55,14 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         OnClickListener,
         ExoPlayerMediaControllerListener {
 
-    private final String TAG = "sbl ExoPlayerLayout";
-    private static final DefaultBandwidthMeter BANDWIDTH_METER = new DefaultBandwidthMeter();
-    public static int hideTime = 5000;
+    private static final String TAG = "sbl ExoPlayerLayout";
+    public static int HIDE_TIME = 5000;
 
     private PlayerView playerView;
     private DataSource.Factory mediaDataSourceFactory;
     private SimpleExoPlayer player;
     private DefaultTrackSelector trackSelector;
+    private DefaultBandwidthMeter BANDWIDTH_METER = new DefaultBandwidthMeter();
 
     private ExoPlayerMediaControllerLayout mediaController;
     private FrameLayout rootLayout;
@@ -72,11 +72,9 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
     private ExoPlayerListener exoPlayerListener;
 
     private Activity activity;
-
     private String videoUrl = null;
     private int startWindow;
     private long startPosition;
-
     private boolean isPause = false;
 
 
@@ -84,9 +82,11 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         this(context, null);
     }
 
+
     public ExoPlayerLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
+
 
     public ExoPlayerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -101,6 +101,7 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
             }
         }
     }
+
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.exo_player_layout, this);
@@ -120,7 +121,6 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
 
 
     private void initializePlayer(boolean shouldAutoPlay) {
-
         if (needCache(videoUrl)) {
             ExoHttpProxyCacheServer.getProxyUrl(getContext(), videoUrl);
         }
@@ -152,8 +152,9 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         player.setPlayWhenReady(shouldAutoPlay);
         player.prepare(buildMediaSource(Uri.parse(videoUrl), ""), !haveStartPosition, false);
 
-        mediaController.show(hideTime);
+        mediaController.show(HIDE_TIME);
     }
+
 
     @SuppressWarnings("unchecked")
     private MediaSource buildMediaSource(Uri uri, String overrideExtension) {
@@ -185,27 +186,32 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         }
     }
 
+
     private List<?> getOfflineStreamKeys() {
         return Collections.emptyList();
     }
+
 
     private DataSource.Factory buildDataSourceFactory(boolean useBandwidthMeter) {
         return CommonUtils.getInstance(getContext()).buildDataSourceFactory(useBandwidthMeter ? BANDWIDTH_METER : null);
     }
 
+
     private boolean useExtensionRenders() {
         return false;
     }
+
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.errorView) {
-            loadingView.setVisibility(View.VISIBLE);
+            setLoadingShow(true);
             errorLayout.setVisibility(View.GONE);
             initializePlayer(false);
         }
     }
+
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -215,7 +221,9 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
                     if (mediaController.isShowing()) {
                         mediaController.hide();
                     } else {
-                        mediaController.show(hideTime);
+                        if(isPlaying()){
+                            mediaController.show(HIDE_TIME);
+                        }
                     }
                 } catch (NullPointerException var2) {
                     var2.printStackTrace();
@@ -225,17 +233,20 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         return true;
     }
 
+
     @Override
     public void start() {
         if (player != null)
             player.setPlayWhenReady(true);
     }
 
+
     @Override
     public void pause() {
         if (player != null)
             player.setPlayWhenReady(false);
     }
+
 
     @Override
     public void restart() {
@@ -245,15 +256,18 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         }
     }
 
+
     @Override
     public long getDuration() {
         return player != null ? player.getDuration() == -1L ? 0 : player.getDuration() : 0;
     }
 
+
     @Override
     public long getCurrentPosition() {
         return player != null ? (player.getDuration() == -1L ? 0 : player.getCurrentPosition()) : 0;
     }
+
 
     @Override
     public void seekTo(long var1) {
@@ -261,24 +275,36 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
             player.seekTo((player.getDuration() == -1L ? 0 : Math.min(Math.max(0, var1), getDuration())));
     }
 
+
     @Override
     public boolean isPlaying() {
         return player != null && player.getPlayWhenReady() && player.getPlaybackState() != Player.STATE_ENDED;
     }
+
 
     @Override
     public boolean isFinish() {
         return player != null &&  player.getPlaybackState() == Player.STATE_ENDED;
     }
 
+
     @Override
     public void doFullScreen() {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
+
     @Override
     public void doSmallScreen() {
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+
+    private void setLoadingShow(boolean show) {
+        loadingView.setVisibility(show ? View.VISIBLE : View.GONE);
+        if (mediaController != null) {
+            mediaController.setShowStateView(!show);
+        }
     }
 
 
@@ -294,6 +320,7 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         initializePlayer(autoPlay);
     }
 
+
     public void release() {
         if (player != null) {
             updateStartPosition();
@@ -303,11 +330,12 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         }
     }
 
+
     private void releasePlayer() {
         if (mediaController != null) {
             mediaController.releaseController();
         }
-        loadingView.setVisibility(GONE);
+        setLoadingShow(false);
         errorLayout.setVisibility(GONE);
 
         if (mediaController != null)
@@ -327,10 +355,12 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         isPause = false;
     }
 
+
     public void onPause() {
         release();
         isPause = true;
     }
+
 
     public void onDestroy() {
         releasePlayer();
@@ -338,28 +368,26 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
 
 
     private class PlayerEventListener implements Player.EventListener {
-
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
             Log.e(TAG, "playWhenReady = " + playWhenReady + ", playbackState = " + playbackState);
             switch (playbackState) {
                 case Player.STATE_BUFFERING:
                     Log.e(TAG, "onPlayerStateChanged = ExoPlayer.STATE_BUFFERING");
-                    loadingView.setVisibility(VISIBLE);
+                    setLoadingShow(true);
                     errorLayout.setVisibility(GONE);
-
                     break;
                 case Player.STATE_READY:
                     Log.e(TAG, "onPlayerStateChanged = ExoPlayer.STATE_READY");
-                    loadingView.setVisibility(GONE);
+                    setLoadingShow(false);
                     errorLayout.setVisibility(GONE);
 
-                    mediaController.show(hideTime);
-
+                    mediaController.show(HIDE_TIME);
                     break;
                 case Player.STATE_ENDED:
-                    mediaController.show(hideTime);
-                    loadingView.setVisibility(GONE);
+                    Log.e(TAG, "onPlayerStateChanged = ExoPlayer.STATE_ENDED");
+                    mediaController.show(HIDE_TIME);
+                    setLoadingShow(false);
                     errorLayout.setVisibility(GONE);
                     if (exoPlayerListener != null) {
                         exoPlayerListener.playerEnd();
@@ -372,7 +400,7 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         public void onPlayerError(ExoPlaybackException e) {
             release();
             mediaController.removeView();
-            loadingView.setVisibility(GONE);
+            setLoadingShow(false);
             errorLayout.setVisibility(VISIBLE);
             if (exoPlayerListener != null)
                 exoPlayerListener.playerError();
@@ -382,8 +410,8 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         public void onSeekProcessed() {
             mediaController.initSeekBar();
         }
-
     }
+
 
     private void updateStartPosition() {
         if (player != null) {
@@ -392,10 +420,12 @@ public class ExoPlayerLayout extends BasePlayerLayout implements View.OnTouchLis
         }
     }
 
+
     private void clearStartPosition() {
         startWindow = C.INDEX_UNSET;
         startPosition = C.TIME_UNSET;
     }
+
 
     public void setLaunchDate(Activity activity,
                               ExoPlayerListener listener,
